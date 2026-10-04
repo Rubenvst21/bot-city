@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04T13:16:31Z",
+  "updated": "2026-10-04T14:46:26Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -7,13 +7,26 @@
       "color": "#ff4fa3",
       "description": "Writes, voices and edits a faceless YouTube Short every day.",
       "state": "ok",
-      "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)",
-      "last_run": "2026-10-04T13:16:29Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37204818719",
-      "runs": 1,
-      "totals": {"Shorts made": 1, "Minutes of video": 0.66, "Uploaded to YouTube": 0},
+      "headline": "Made “Blockbuster Laughed at Buying Netflix for $50 Million” (42 s)",
+      "last_run": "2026-10-04T14:46:23Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37210225047",
+      "runs": 2,
+      "totals": {
+        "Shorts made": 2,
+        "Minutes of video": 1.36,
+        "Uploaded to YouTube": 0
+      },
       "history": [
-        {"time": "2026-10-04T13:16:29Z", "state": "ok", "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"}
+        {
+          "time": "2026-10-04T14:46:23Z",
+          "state": "ok",
+          "headline": "Made “Blockbuster Laughed at Buying Netflix for $50 Million” (42 s)"
+        },
+        {
+          "time": "2026-10-04T13:16:29Z",
+          "state": "ok",
+          "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
+        }
       ]
     },
     "trading": {
