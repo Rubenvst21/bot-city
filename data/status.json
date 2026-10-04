@@ -1,0 +1,48 @@
+{
+  "updated": "2026-10-04T13:16:31Z",
+  "bots": {
+    "shorts": {
+      "name": "Shorts Studio",
+      "emoji": "🎬",
+      "color": "#ff4fa3",
+      "description": "Writes, voices and edits a faceless YouTube Short every day.",
+      "state": "ok",
+      "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)",
+      "last_run": "2026-10-04T13:16:29Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37204818719",
+      "runs": 1,
+      "totals": {"Shorts made": 1, "Minutes of video": 0.66, "Uploaded to YouTube": 0},
+      "history": [
+        {"time": "2026-10-04T13:16:29Z", "state": "ok", "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"}
+      ]
+    },
+    "trading": {
+      "name": "Trading Desk",
+      "emoji": "📈",
+      "color": "#3cff9e",
+      "description": "Five bots trading QQQ and SPY options with VWAP and EMA 9/21/50 signals, on paper money first.",
+      "state": "planned"
+    },
+    "scout": {
+      "name": "Product Scout",
+      "emoji": "🔎",
+      "color": "#ffd23f",
+      "description": "Searches the internet for products worth selling.",
+      "state": "planned"
+    },
+    "builder": {
+      "name": "Store Builder",
+      "emoji": "🏗️",
+      "color": "#4fc3ff",
+      "description": "Builds the shop page for each product.",
+      "state": "planned"
+    },
+    "orders": {
+      "name": "Order Desk",
+      "emoji": "📦",
+      "color": "#b388ff",
+      "description": "Handles sales, payments and shipping.",
+      "state": "planned"
+    }
+  }
+}

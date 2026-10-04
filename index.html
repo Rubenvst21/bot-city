@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bot City</title>
+<meta name="description" content="A live 3D city where every tower is a working bot.">
+<meta name="theme-color" content="#06041a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏙️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #06041a;
+    --panel: rgba(14, 10, 40, 0.82);
+    --line: rgba(160, 140, 255, 0.22);
+    --text: #f2efff;
+    --muted: #a49fd0;
+    --ok: #3cff9e;
+    --failed: #ff4d6d;
+    --running: #ffc83d;
+    --planned: #8a83b8;
+    --display: "Rajdhani", system-ui, sans-serif;
+    --body: "Inter", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); font-family: var(--body); overflow: hidden; }
+  canvas#scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+  .hud { position: fixed; top: 0; left: 0; right: 0; padding: calc(env(safe-area-inset-top) + 14px) 16px 28px;
+         background: linear-gradient(var(--bg), transparent); pointer-events: none; }
+  .hud h1 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 26px; letter-spacing: 0.22em;
+            text-shadow: 0 0 18px rgba(140, 110, 255, 0.9); }
+  .hud p { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+  .hud { transition: opacity 0.3s; }
+  @media (max-width: 759px) { .sheet-open .hud { opacity: 0; } }
+
+  #labels { position: fixed; inset: 0; pointer-events: none; }
+  .label { position: absolute; left: 0; top: 0; min-width: 104px; max-width: 168px; padding: 6px 9px 7px;
+           background: var(--panel); border: 1px solid var(--line); border-top: 2px solid var(--c);
+           border-radius: 8px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+           font-size: 11px; line-height: 1.3; cursor: pointer; pointer-events: auto; white-space: nowrap;
+           box-shadow: 0 0 16px color-mix(in srgb, var(--c) 35%, transparent); will-change: transform; }
+  .label b { font-family: var(--display); font-size: 14px; font-weight: 700; letter-spacing: 0.04em; }
+  .label .stat { color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+  .label.hq { --c: #ffc98a; text-align: center; }
+  @media (max-width: 520px) {
+    .label { min-width: 0; max-width: 128px; padding: 4px 7px 5px; font-size: 10px; }
+    .label b { font-size: 12px; }
+  }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; vertical-align: 1px;
+         background: var(--planned); }
+  .dot.ok { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+  .dot.failed { background: var(--failed); box-shadow: 0 0 8px var(--failed); }
+  .dot.running { background: var(--running); box-shadow: 0 0 8px var(--running); animation: blink 1s infinite; }
+  @keyframes blink { 50% { opacity: 0.25; } }
+
+  #sheet { position: fixed; left: 0; right: 0; bottom: 0; max-height: 62%; overflow-y: auto;
+           padding: 18px 16px calc(env(safe-area-inset-bottom) + 18px); background: var(--panel);
+           border-top: 2px solid var(--c, #8a7dff); border-radius: 18px 18px 0 0;
+           backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+           transform: translateY(105%); transition: transform 0.35s ease; z-index: 3; }
+  #sheet.open { transform: none; }
+  @media (min-width: 760px) {
+    #sheet { left: auto; right: 16px; bottom: 16px; width: 380px; max-height: calc(100% - 120px);
+             border-radius: 16px; border: 1px solid var(--line); border-top: 2px solid var(--c, #8a7dff); }
+  }
+  .sheet-head { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+  .sheet-head h2 { margin: 0; font-family: var(--display); font-size: 26px; font-weight: 700; letter-spacing: 0.03em; }
+  .close { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line);
+           background: transparent; color: var(--text); font-size: 20px; cursor: pointer; }
+  .state { margin: 4px 0 10px; font-size: 14px; color: var(--muted); }
+  .desc { margin: 0 0 12px; font-size: 14px; line-height: 1.45; }
+  .headline { margin: 0 0 14px; padding: 10px 12px; border-left: 3px solid var(--c, #8a7dff);
+              background: rgba(255, 255, 255, 0.04); border-radius: 6px; font-size: 14px; line-height: 1.4; }
+  .totals { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 8px; margin-bottom: 16px; }
+  .total { padding: 10px; border: 1px solid var(--line); border-radius: 10px; }
+  .total .n { font-family: var(--display); font-size: 26px; font-weight: 700; line-height: 1; }
+  .total .k { margin-top: 4px; font-size: 12px; color: var(--muted); }
+  h3 { margin: 0 0 8px; font-family: var(--display); font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .history { list-style: none; margin: 0 0 16px; padding: 0; font-size: 13px; }
+  .history li { display: flex; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--line); }
+  .history time { flex: none; width: 92px; color: var(--muted); }
+  .run-link { display: inline-block; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line);
+              color: var(--text); text-decoration: none; font-size: 14px; }
+
+  .ticker { position: fixed; left: 0; right: 0; bottom: 0; height: 30px; overflow: hidden; z-index: 2;
+            padding-bottom: env(safe-area-inset-bottom); background: rgba(6, 4, 26, 0.85);
+            border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+  .ticker-track { display: inline-flex; gap: 40px; padding: 8px 0 0 100%; white-space: nowrap; animation: ticker 40s linear infinite; }
+  .ticker-track span b { color: var(--text); font-weight: 600; }
+  @keyframes ticker { to { transform: translateX(-100%); } }
+  @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; padding-left: 16px; } .dot.running { animation: none; } }
+  .notice { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--muted); }
+</style>
+</head>
+<body>
+<canvas id="scene" aria-label="3D city where each tower is a bot"></canvas>
+<header class="hud">
+  <h1>BOT CITY</h1>
+  <p id="summary">Loading the city…</p>
+</header>
+<div id="labels"></div>
+<section id="sheet" aria-live="polite"></section>
+<footer class="ticker"><div class="ticker-track" id="ticker"></div></footer>
+<noscript><div class="notice">Bot City needs JavaScript to draw the city.</div></noscript>
+<script type="module" src="city.js"></script>
+</body>
+</html>

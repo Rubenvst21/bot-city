@@ -1,0 +1,12 @@
+{
+  "name": "bot-city",
+  "private": true,
+  "description": "Builds city.js from src/city.js. Run: npm install && npm run build",
+  "scripts": {
+    "build": "esbuild src/city.js --bundle --minify --format=esm --target=es2020 --outfile=city.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "three": "0.186.1"
+  }
+}
