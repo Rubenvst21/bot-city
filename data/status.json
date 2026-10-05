@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-05T16:52:05Z",
+  "updated": "2026-10-05T18:03:38Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “He Tried to Buy a Fighter Jet With Pepsi Points” (44 s)",
       "last_run": "2026-10-05T11:31:02Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37302971798",
@@ -37,7 +37,8 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ]
+      ],
+      "started": "2026-10-05T18:03:38Z"
     },
     "trading": {
       "name": "Trading Desk",
