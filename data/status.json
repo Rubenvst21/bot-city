@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05T14:34:07Z",
+  "updated": "2026-10-05T14:34:12Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -51,14 +51,19 @@
       "emoji": "🔎",
       "color": "#ffd23f",
       "description": "Researches what printable money tools people are buying, designs one and saves it to the Shopify store as a draft.",
-      "state": "running",
-      "last_run": "2026-10-05T14:30:18Z",
-      "runs": 2,
-      "failures": 2,
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37325129692",
+      "state": "failed",
+      "last_run": "2026-10-05T14:34:11Z",
+      "runs": 3,
+      "failures": 3,
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37325665482",
       "totals": {},
       "headline": "Run failed, check the log",
       "history": [
+        {
+          "time": "2026-10-05T14:34:11Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-05T14:30:18Z",
           "state": "failed",
@@ -69,8 +74,7 @@
           "state": "failed",
           "headline": "Run failed, check the log"
         }
-      ],
-      "started": "2026-10-05T14:34:07Z"
+      ]
     },
     "builder": {
       "name": "Store Builder",
