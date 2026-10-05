@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-05T18:06:23Z",
+  "updated": "2026-10-05T18:55:25Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “The Stock Market Lost 22% in One Day. Then This Happened” (43 s)",
       "last_run": "2026-10-05T18:06:23Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37352959944",
@@ -42,7 +42,8 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ]
+      ],
+      "started": "2026-10-05T18:55:25Z"
     },
     "trading": {
       "name": "Trading Desk",
