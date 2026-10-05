@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-05T19:54:05Z",
+  "updated": "2026-10-05T19:58:14Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “Michael Myers' Mask Was Secretly Captain Kirk” (40 s)",
-      "last_run": "2026-10-05T18:59:04Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37359120068",
-      "runs": 6,
+      "state": "ok",
+      "headline": "Made “A NASA Engineer Invented a Squirt Gun by Accident. It Paid Millions” (39 s)",
+      "last_run": "2026-10-05T19:58:13Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37362698841",
+      "runs": 7,
       "totals": {
-        "Shorts made": 6,
-        "Minutes of video": 4.16,
-        "Uploaded to YouTube": 4
+        "Shorts made": 7,
+        "Minutes of video": 4.81,
+        "Uploaded to YouTube": 5
       },
       "history": [
+        {
+          "time": "2026-10-05T19:58:13Z",
+          "state": "ok",
+          "headline": "Made “A NASA Engineer Invented a Squirt Gun by Accident. It Paid Millions” (39 s)"
+        },
         {
           "time": "2026-10-05T18:59:04Z",
           "state": "ok",
@@ -47,8 +52,7 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ],
-      "started": "2026-10-05T19:54:04Z"
+      ]
     },
     "trading": {
       "name": "Trading Desk",
