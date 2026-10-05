@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05T16:49:55Z",
+  "updated": "2026-10-05T16:52:05Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -51,17 +51,22 @@
       "emoji": "🔎",
       "color": "#ffd23f",
       "description": "Researches what printable money tools people are buying, designs one and saves it to the Shopify store as a draft.",
-      "state": "running",
-      "last_run": "2026-10-05T14:41:53Z",
-      "runs": 4,
+      "state": "ok",
+      "last_run": "2026-10-05T16:52:05Z",
+      "runs": 5,
       "failures": 3,
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37326298251",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37343743571",
       "totals": {
-        "Products designed": 1,
-        "Drafts in the shop": 1
+        "Products designed": 2,
+        "Drafts in the shop": 2
       },
-      "headline": "Designed “December to January Long Month Budget Planner Printable PDF” (21 pages) and saved it to Shopify as a draft",
+      "headline": "Designed “Black Friday & Festive Gift Budget Planner 2026 Rand Printable PDF” (21 pages) and saved it to Shopify as a draft",
       "history": [
+        {
+          "time": "2026-10-05T16:52:05Z",
+          "state": "ok",
+          "headline": "Designed “Black Friday & Festive Gift Budget Planner 2026 Rand Printable PDF” (21 pages) and saved it to Shopify as a draft"
+        },
         {
           "time": "2026-10-05T14:41:53Z",
           "state": "ok",
@@ -82,8 +87,7 @@
           "state": "failed",
           "headline": "Run failed, check the log"
         }
-      ],
-      "started": "2026-10-05T16:49:54Z"
+      ]
     },
     "builder": {
       "name": "Store Builder",
