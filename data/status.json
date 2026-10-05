@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05T14:41:53Z",
+  "updated": "2026-10-05T16:49:55Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -51,7 +51,7 @@
       "emoji": "🔎",
       "color": "#ffd23f",
       "description": "Researches what printable money tools people are buying, designs one and saves it to the Shopify store as a draft.",
-      "state": "ok",
+      "state": "running",
       "last_run": "2026-10-05T14:41:53Z",
       "runs": 4,
       "failures": 3,
@@ -82,7 +82,8 @@
           "state": "failed",
           "headline": "Run failed, check the log"
         }
-      ]
+      ],
+      "started": "2026-10-05T16:49:54Z"
     },
     "builder": {
       "name": "Store Builder",
