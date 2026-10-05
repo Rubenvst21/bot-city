@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05T11:31:02Z",
+  "updated": "2026-10-05T14:25:34Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -50,8 +50,9 @@
       "name": "Product Scout",
       "emoji": "🔎",
       "color": "#ffd23f",
-      "description": "Searches the internet for products worth selling.",
-      "state": "planned"
+      "description": "Researches what printable money tools people are buying, designs one and saves it to the Shopify store as a draft.",
+      "state": "running",
+      "started": "2026-10-05T14:25:34Z"
     },
     "builder": {
       "name": "Store Builder",
