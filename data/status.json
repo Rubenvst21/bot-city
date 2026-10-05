@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-05T19:58:14Z",
+  "updated": "2026-10-05T20:20:15Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “A NASA Engineer Invented a Squirt Gun by Accident. It Paid Millions” (39 s)",
       "last_run": "2026-10-05T19:58:13Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37362698841",
@@ -52,7 +52,8 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ]
+      ],
+      "started": "2026-10-05T20:20:15Z"
     },
     "trading": {
       "name": "Trading Desk",
