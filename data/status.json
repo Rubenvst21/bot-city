@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-05T11:28:03Z",
+  "updated": "2026-10-05T11:31:02Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “He Sold 10% of Apple for $800. Here's Why.” (41 s)",
-      "last_run": "2026-10-04T17:53:14Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37221932019",
-      "runs": 3,
+      "state": "ok",
+      "headline": "Made “He Tried to Buy a Fighter Jet With Pepsi Points” (44 s)",
+      "last_run": "2026-10-05T11:31:02Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37302971798",
+      "runs": 4,
       "totals": {
-        "Shorts made": 3,
-        "Minutes of video": 2.04,
-        "Uploaded to YouTube": 1
+        "Shorts made": 4,
+        "Minutes of video": 2.77,
+        "Uploaded to YouTube": 2
       },
       "history": [
+        {
+          "time": "2026-10-05T11:31:02Z",
+          "state": "ok",
+          "headline": "Made “He Tried to Buy a Fighter Jet With Pepsi Points” (44 s)"
+        },
         {
           "time": "2026-10-04T17:53:14Z",
           "state": "ok",
@@ -32,8 +37,7 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ],
-      "started": "2026-10-05T11:28:03Z"
+      ]
     },
     "trading": {
       "name": "Trading Desk",
