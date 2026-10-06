@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-06T20:59:24Z",
+  "updated": "2026-10-06T21:03:46Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “Cat Litter Exists Because of a Frozen Sandbox” (44 s)",
-      "last_run": "2026-10-06T16:50:40Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37498094784",
-      "runs": 11,
+      "state": "ok",
+      "headline": "Made “A Dentist Helped Invent Cotton Candy. Seriously.” (43 s)",
+      "last_run": "2026-10-06T21:03:45Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37530280059",
+      "runs": 12,
       "totals": {
-        "Shorts made": 11,
-        "Minutes of video": 7.39,
-        "Uploaded to YouTube": 9
+        "Shorts made": 12,
+        "Minutes of video": 8.11,
+        "Uploaded to YouTube": 10
       },
       "history": [
+        {
+          "time": "2026-10-06T21:03:45Z",
+          "state": "ok",
+          "headline": "Made “A Dentist Helped Invent Cotton Candy. Seriously.” (43 s)"
+        },
         {
           "time": "2026-10-06T16:50:40Z",
           "state": "ok",
@@ -72,8 +77,7 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ],
-      "started": "2026-10-06T20:59:24Z"
+      ]
     },
     "trading": {
       "name": "Trading Desk",
