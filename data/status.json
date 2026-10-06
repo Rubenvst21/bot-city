@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-06T15:31:40Z",
+  "updated": "2026-10-06T15:35:12Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “Kleenex Was Never Meant for Your Nose” (35 s)",
-      "last_run": "2026-10-05T21:04:58Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37371420925",
-      "runs": 9,
+      "state": "ok",
+      "headline": "Made “He Got Rich Selling Ordinary Rocks as Pets” (38 s)",
+      "last_run": "2026-10-06T15:35:12Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37487913111",
+      "runs": 10,
       "totals": {
-        "Shorts made": 9,
-        "Minutes of video": 6.03,
-        "Uploaded to YouTube": 7
+        "Shorts made": 10,
+        "Minutes of video": 6.66,
+        "Uploaded to YouTube": 8
       },
       "history": [
+        {
+          "time": "2026-10-06T15:35:12Z",
+          "state": "ok",
+          "headline": "Made “He Got Rich Selling Ordinary Rocks as Pets” (38 s)"
+        },
         {
           "time": "2026-10-05T21:04:58Z",
           "state": "ok",
@@ -62,8 +67,7 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ],
-      "started": "2026-10-06T15:31:40Z"
+      ]
     },
     "trading": {
       "name": "Trading Desk",
