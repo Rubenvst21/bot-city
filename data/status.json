@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-06T16:46:38Z",
+  "updated": "2026-10-06T16:50:40Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “He Got Rich Selling Ordinary Rocks as Pets” (38 s)",
-      "last_run": "2026-10-06T15:35:12Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37487913111",
-      "runs": 10,
+      "state": "ok",
+      "headline": "Made “Cat Litter Exists Because of a Frozen Sandbox” (44 s)",
+      "last_run": "2026-10-06T16:50:40Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37498094784",
+      "runs": 11,
       "totals": {
-        "Shorts made": 10,
-        "Minutes of video": 6.66,
-        "Uploaded to YouTube": 8
+        "Shorts made": 11,
+        "Minutes of video": 7.39,
+        "Uploaded to YouTube": 9
       },
       "history": [
+        {
+          "time": "2026-10-06T16:50:40Z",
+          "state": "ok",
+          "headline": "Made “Cat Litter Exists Because of a Frozen Sandbox” (44 s)"
+        },
         {
           "time": "2026-10-06T15:35:12Z",
           "state": "ok",
@@ -67,8 +72,7 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ],
-      "started": "2026-10-06T16:46:38Z"
+      ]
     },
     "trading": {
       "name": "Trading Desk",
