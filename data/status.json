@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-07T10:46:35Z",
+  "updated": "2026-10-07T10:50:40Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “Candy Makers Lobbied to Change America's Clocks for Halloween” (39 s)",
-      "last_run": "2026-10-07T10:42:54Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37608711383",
-      "runs": 13,
+      "state": "ok",
+      "headline": "Made “How Giant Pumpkins Grow 40 Pounds in ONE Day” (40 s)",
+      "last_run": "2026-10-07T10:50:40Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37609365173",
+      "runs": 14,
       "totals": {
-        "Shorts made": 13,
-        "Minutes of video": 8.76,
-        "Uploaded to YouTube": 11
+        "Shorts made": 14,
+        "Minutes of video": 9.43,
+        "Uploaded to YouTube": 12
       },
       "history": [
+        {
+          "time": "2026-10-07T10:50:40Z",
+          "state": "ok",
+          "headline": "Made “How Giant Pumpkins Grow 40 Pounds in ONE Day” (40 s)"
+        },
         {
           "time": "2026-10-07T10:42:54Z",
           "state": "ok",
@@ -82,8 +87,7 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ],
-      "started": "2026-10-07T10:46:34Z"
+      ]
     },
     "trading": {
       "name": "Trading Desk",
