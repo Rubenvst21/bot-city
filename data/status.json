@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-07T17:30:38Z",
+  "updated": "2026-10-07T21:17:26Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “Why Shipping Companies Treat Pistachios as a Fire Hazard” (41 s)",
       "last_run": "2026-10-07T17:30:37Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37658797532",
@@ -92,7 +92,8 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ]
+      ],
+      "started": "2026-10-07T21:17:26Z"
     },
     "trading": {
       "name": "Trading Desk",
