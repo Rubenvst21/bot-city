@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-07T21:17:26Z",
+  "updated": "2026-10-07T21:20:37Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “Why Shipping Companies Treat Pistachios as a Fire Hazard” (41 s)",
-      "last_run": "2026-10-07T17:30:37Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37658797532",
-      "runs": 15,
+      "state": "ok",
+      "headline": "Made “Your Body Is Glowing Right Now (Scientists Filmed It)” (46 s)",
+      "last_run": "2026-10-07T21:20:36Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37688145502",
+      "runs": 16,
       "totals": {
-        "Shorts made": 15,
-        "Minutes of video": 10.12,
-        "Uploaded to YouTube": 13
+        "Shorts made": 16,
+        "Minutes of video": 10.88,
+        "Uploaded to YouTube": 14
       },
       "history": [
+        {
+          "time": "2026-10-07T21:20:36Z",
+          "state": "ok",
+          "headline": "Made “Your Body Is Glowing Right Now (Scientists Filmed It)” (46 s)"
+        },
         {
           "time": "2026-10-07T17:30:37Z",
           "state": "ok",
@@ -92,8 +97,7 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ],
-      "started": "2026-10-07T21:17:26Z"
+      ]
     },
     "trading": {
       "name": "Trading Desk",
