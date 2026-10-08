@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-08T17:41:45Z",
+  "updated": "2026-10-08T17:45:13Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “Your Body Is Glowing Right Now (Scientists Filmed It)” (46 s)",
-      "last_run": "2026-10-07T21:20:36Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37688145502",
-      "runs": 16,
+      "state": "ok",
+      "headline": "Made “America's Deadliest Fire Happened the Same Night as Chicago's” (44 s)",
+      "last_run": "2026-10-08T17:45:13Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37816061651",
+      "runs": 17,
       "totals": {
-        "Shorts made": 16,
-        "Minutes of video": 10.88,
-        "Uploaded to YouTube": 14
+        "Shorts made": 17,
+        "Minutes of video": 11.62,
+        "Uploaded to YouTube": 15
       },
       "history": [
+        {
+          "time": "2026-10-08T17:45:13Z",
+          "state": "ok",
+          "headline": "Made “America's Deadliest Fire Happened the Same Night as Chicago's” (44 s)"
+        },
         {
           "time": "2026-10-07T21:20:36Z",
           "state": "ok",
@@ -97,8 +102,7 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ],
-      "started": "2026-10-08T17:41:45Z"
+      ]
     },
     "trading": {
       "name": "Trading Desk",
