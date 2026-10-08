@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-08T17:45:13Z",
+  "updated": "2026-10-08T19:24:58Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “America's Deadliest Fire Happened the Same Night as Chicago's” (44 s)",
       "last_run": "2026-10-08T17:45:13Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37816061651",
@@ -102,7 +102,8 @@
           "state": "ok",
           "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ]
+      ],
+      "started": "2026-10-08T19:24:58Z"
     },
     "trading": {
       "name": "Trading Desk",
