@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-09T20:53:06Z",
+  "updated": "2026-10-09T20:57:00Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “What Did People Use to Erase Pencil Before Erasers?” (36 s)",
-      "last_run": "2026-10-09T17:04:27Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37962893042",
-      "runs": 20,
+      "state": "ok",
+      "headline": "Made “Bubble Wrap Was Invented for Something Totally Different” (42 s)",
+      "last_run": "2026-10-09T20:57:00Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37989677505",
+      "runs": 21,
       "totals": {
-        "Shorts made": 20,
-        "Minutes of video": 13.59,
-        "Uploaded to YouTube": 18
+        "Shorts made": 21,
+        "Minutes of video": 14.29,
+        "Uploaded to YouTube": 19
       },
       "history": [
+        {
+          "time": "2026-10-09T20:57:00Z",
+          "state": "ok",
+          "headline": "Made “Bubble Wrap Was Invented for Something Totally Different” (42 s)"
+        },
         {
           "time": "2026-10-09T17:04:27Z",
           "state": "ok",
@@ -111,14 +116,8 @@
           "time": "2026-10-04T14:46:23Z",
           "state": "ok",
           "headline": "Made “Blockbuster Laughed at Buying Netflix for $50 Million” (42 s)"
-        },
-        {
-          "time": "2026-10-04T13:16:29Z",
-          "state": "ok",
-          "headline": "Made “The Man Who Paid 10,000 Bitcoin for Two Pizzas” (40 s)"
         }
-      ],
-      "started": "2026-10-09T20:53:06Z"
+      ]
     },
     "trading": {
       "name": "Trading Desk",
