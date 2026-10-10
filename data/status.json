@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-10T15:53:31Z",
+  "updated": "2026-10-10T20:04:39Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-10T15:53:31Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38065263714",
@@ -118,7 +118,8 @@
           "headline": "Made “He Sold 10% of Apple for $800. Here's Why.” (41 s)"
         }
       ],
-      "failures": 1
+      "failures": 1,
+      "started": "2026-10-10T20:04:38Z"
     },
     "trading": {
       "name": "Trading Desk",
