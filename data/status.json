@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-10T15:53:25Z",
+  "updated": "2026-10-10T15:53:31Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “Bubble Wrap Was Invented for Something Totally Different” (42 s)",
-      "last_run": "2026-10-09T20:57:00Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37989677505",
-      "runs": 21,
+      "state": "failed",
+      "headline": "Run failed, check the log",
+      "last_run": "2026-10-10T15:53:31Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38065263714",
+      "runs": 22,
       "totals": {
         "Shorts made": 21,
         "Minutes of video": 14.29,
         "Uploaded to YouTube": 19
       },
       "history": [
+        {
+          "time": "2026-10-10T15:53:31Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-09T20:57:00Z",
           "state": "ok",
@@ -111,14 +116,9 @@
           "time": "2026-10-04T17:53:14Z",
           "state": "ok",
           "headline": "Made “He Sold 10% of Apple for $800. Here's Why.” (41 s)"
-        },
-        {
-          "time": "2026-10-04T14:46:23Z",
-          "state": "ok",
-          "headline": "Made “Blockbuster Laughed at Buying Netflix for $50 Million” (42 s)"
         }
       ],
-      "started": "2026-10-10T15:53:24Z"
+      "failures": 1
     },
     "trading": {
       "name": "Trading Desk",
