@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-09T20:57:00Z",
+  "updated": "2026-10-10T15:53:25Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “Bubble Wrap Was Invented for Something Totally Different” (42 s)",
       "last_run": "2026-10-09T20:57:00Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/37989677505",
@@ -117,7 +117,8 @@
           "state": "ok",
           "headline": "Made “Blockbuster Laughed at Buying Netflix for $50 Million” (42 s)"
         }
-      ]
+      ],
+      "started": "2026-10-10T15:53:24Z"
     },
     "trading": {
       "name": "Trading Desk",
