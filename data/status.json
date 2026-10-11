@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-10T20:04:45Z",
+  "updated": "2026-10-11T16:19:42Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-10T20:04:45Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38082149694",
@@ -118,7 +118,8 @@
           "headline": "Made “He Tried to Buy a Fighter Jet With Pepsi Points” (44 s)"
         }
       ],
-      "failures": 2
+      "failures": 2,
+      "started": "2026-10-11T16:19:42Z"
     },
     "trading": {
       "name": "Trading Desk",
