@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-11T16:19:47Z",
+  "updated": "2026-10-11T20:15:37Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-11T16:19:47Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38154878790",
@@ -118,7 +118,8 @@
           "headline": "Made “The Stock Market Lost 22% in One Day. Then This Happened” (43 s)"
         }
       ],
-      "failures": 3
+      "failures": 3,
+      "started": "2026-10-11T20:15:37Z"
     },
     "trading": {
       "name": "Trading Desk",
