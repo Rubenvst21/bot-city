@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-11T20:21:15Z",
+  "updated": "2026-10-11T20:21:22Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
+      "state": "failed",
       "headline": "Run failed, check the log",
-      "last_run": "2026-10-11T20:15:43Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38171241245",
-      "runs": 25,
+      "last_run": "2026-10-11T20:21:22Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38171596710",
+      "runs": 26,
       "totals": {
         "Shorts made": 21,
         "Minutes of video": 14.29,
         "Uploaded to YouTube": 19
       },
       "history": [
+        {
+          "time": "2026-10-11T20:21:22Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-11T20:15:43Z",
           "state": "failed",
@@ -111,15 +116,9 @@
           "time": "2026-10-05T19:58:13Z",
           "state": "ok",
           "headline": "Made “A NASA Engineer Invented a Squirt Gun by Accident. It Paid Millions” (39 s)"
-        },
-        {
-          "time": "2026-10-05T18:59:04Z",
-          "state": "ok",
-          "headline": "Made “Michael Myers' Mask Was Secretly Captain Kirk” (40 s)"
         }
       ],
-      "failures": 4,
-      "started": "2026-10-11T20:21:15Z"
+      "failures": 5
     },
     "trading": {
       "name": "Trading Desk",
