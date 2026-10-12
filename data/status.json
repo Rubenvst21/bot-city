@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-12T19:49:32Z",
+  "updated": "2026-10-12T22:58:27Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-12T19:49:32Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38299893142",
@@ -118,7 +118,8 @@
           "headline": "Made “The Secret Monopoly Sets That Helped Prisoners Escape WWII” (39 s)"
         }
       ],
-      "failures": 6
+      "failures": 6,
+      "started": "2026-10-12T22:58:27Z"
     },
     "trading": {
       "name": "Trading Desk",
