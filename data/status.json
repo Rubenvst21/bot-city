@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-11T20:21:22Z",
+  "updated": "2026-10-12T19:49:26Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-11T20:21:22Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38171596710",
@@ -118,7 +118,8 @@
           "headline": "Made “A NASA Engineer Invented a Squirt Gun by Accident. It Paid Millions” (39 s)"
         }
       ],
-      "failures": 5
+      "failures": 5,
+      "started": "2026-10-12T19:49:26Z"
     },
     "trading": {
       "name": "Trading Desk",
