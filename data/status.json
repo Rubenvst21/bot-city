@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-13T17:37:06Z",
+  "updated": "2026-10-13T21:15:39Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-13T17:37:06Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38439640712",
@@ -118,7 +118,8 @@
           "headline": "Made “He Got Rich Selling Ordinary Rocks as Pets” (38 s)"
         }
       ],
-      "failures": 8
+      "failures": 8,
+      "started": "2026-10-13T21:15:39Z"
     },
     "trading": {
       "name": "Trading Desk",
