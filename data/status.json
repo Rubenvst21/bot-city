@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-12T22:58:33Z",
+  "updated": "2026-10-13T17:36:59Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-12T22:58:33Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38319339445",
@@ -118,7 +118,8 @@
           "headline": "Made “Kleenex Was Never Meant for Your Nose” (35 s)"
         }
       ],
-      "failures": 7
+      "failures": 7,
+      "started": "2026-10-13T17:36:59Z"
     },
     "trading": {
       "name": "Trading Desk",
