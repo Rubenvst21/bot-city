@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-13T21:15:46Z",
+  "updated": "2026-10-14T15:07:07Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-13T21:15:46Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38468799930",
@@ -118,7 +118,8 @@
           "headline": "Made “Cat Litter Exists Because of a Frozen Sandbox” (44 s)"
         }
       ],
-      "failures": 9
+      "failures": 9,
+      "started": "2026-10-14T15:07:07Z"
     },
     "trading": {
       "name": "Trading Desk",
