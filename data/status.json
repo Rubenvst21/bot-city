@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-14T15:07:14Z",
+  "updated": "2026-10-14T20:14:08Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-14T15:07:13Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38586042681",
@@ -118,7 +118,8 @@
           "headline": "Made “A Dentist Helped Invent Cotton Candy. Seriously.” (43 s)"
         }
       ],
-      "failures": 10
+      "failures": 10,
+      "started": "2026-10-14T20:14:08Z"
     },
     "trading": {
       "name": "Trading Desk",
