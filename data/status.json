@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-14T20:14:08Z",
+  "updated": "2026-10-14T20:14:14Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
+      "state": "failed",
       "headline": "Run failed, check the log",
-      "last_run": "2026-10-14T15:07:13Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38586042681",
-      "runs": 31,
+      "last_run": "2026-10-14T20:14:14Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38629845779",
+      "runs": 32,
       "totals": {
         "Shorts made": 21,
         "Minutes of video": 14.29,
         "Uploaded to YouTube": 19
       },
       "history": [
+        {
+          "time": "2026-10-14T20:14:14Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-14T15:07:13Z",
           "state": "failed",
@@ -111,15 +116,9 @@
           "time": "2026-10-07T10:42:54Z",
           "state": "ok",
           "headline": "Made “Candy Makers Lobbied to Change America's Clocks for Halloween” (39 s)"
-        },
-        {
-          "time": "2026-10-06T21:03:45Z",
-          "state": "ok",
-          "headline": "Made “A Dentist Helped Invent Cotton Candy. Seriously.” (43 s)"
         }
       ],
-      "failures": 10,
-      "started": "2026-10-14T20:14:08Z"
+      "failures": 11
     },
     "trading": {
       "name": "Trading Desk",
