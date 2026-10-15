@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-14T20:14:14Z",
+  "updated": "2026-10-15T15:00:41Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-14T20:14:14Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38629845779",
@@ -118,7 +118,8 @@
           "headline": "Made “Candy Makers Lobbied to Change America's Clocks for Halloween” (39 s)"
         }
       ],
-      "failures": 11
+      "failures": 11,
+      "started": "2026-10-15T15:00:41Z"
     },
     "trading": {
       "name": "Trading Desk",
