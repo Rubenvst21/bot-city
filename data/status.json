@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-16T14:51:19Z",
+  "updated": "2026-10-16T19:35:03Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-16T14:51:18Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38918682471",
@@ -118,7 +118,8 @@
           "headline": "Made “Your Body Is Glowing Right Now (Scientists Filmed It)” (46 s)"
         }
       ],
-      "failures": 14
+      "failures": 14,
+      "started": "2026-10-16T19:35:02Z"
     },
     "trading": {
       "name": "Trading Desk",
