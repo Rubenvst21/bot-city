@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-15T19:55:27Z",
+  "updated": "2026-10-16T14:51:12Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-15T19:55:26Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38797303557",
@@ -118,7 +118,8 @@
           "headline": "Made “Why Shipping Companies Treat Pistachios as a Fire Hazard” (41 s)"
         }
       ],
-      "failures": 13
+      "failures": 13,
+      "started": "2026-10-16T14:51:12Z"
     },
     "trading": {
       "name": "Trading Desk",
