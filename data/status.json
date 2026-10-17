@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-17T13:45:01Z",
+  "updated": "2026-10-17T18:30:00Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-17T13:45:01Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39037604890",
@@ -118,7 +118,8 @@
           "headline": "Made “Candy Corn's Original Name Is Ridiculous” (40 s)"
         }
       ],
-      "failures": 16
+      "failures": 16,
+      "started": "2026-10-17T18:29:59Z"
     },
     "trading": {
       "name": "Trading Desk",
