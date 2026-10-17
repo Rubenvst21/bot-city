@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-16T19:35:10Z",
+  "updated": "2026-10-17T13:44:53Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-16T19:35:10Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/38955591585",
@@ -118,7 +118,8 @@
           "headline": "Made “America's Deadliest Fire Happened the Same Night as Chicago's” (44 s)"
         }
       ],
-      "failures": 15
+      "failures": 15,
+      "started": "2026-10-17T13:44:53Z"
     },
     "trading": {
       "name": "Trading Desk",
