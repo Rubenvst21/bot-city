@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-17T18:30:07Z",
+  "updated": "2026-10-18T14:01:05Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-17T18:30:07Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39058094056",
@@ -118,7 +118,8 @@
           "headline": "Made “The First Jack-o'-Lanterns Weren't Pumpkins” (43 s)"
         }
       ],
-      "failures": 17
+      "failures": 17,
+      "started": "2026-10-18T14:01:04Z"
     },
     "trading": {
       "name": "Trading Desk",
