@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-18T18:39:32Z",
+  "updated": "2026-10-18T18:39:38Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
+      "state": "failed",
       "headline": "Run failed, check the log",
-      "last_run": "2026-10-18T14:01:11Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39133862790",
-      "runs": 39,
+      "last_run": "2026-10-18T18:39:38Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39154903332",
+      "runs": 40,
       "totals": {
         "Shorts made": 21,
         "Minutes of video": 14.29,
         "Uploaded to YouTube": 19
       },
       "history": [
+        {
+          "time": "2026-10-18T18:39:38Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-18T14:01:11Z",
           "state": "failed",
@@ -111,15 +116,9 @@
           "time": "2026-10-09T20:57:00Z",
           "state": "ok",
           "headline": "Made “Bubble Wrap Was Invented for Something Totally Different” (42 s)"
-        },
-        {
-          "time": "2026-10-09T17:04:27Z",
-          "state": "ok",
-          "headline": "Made “What Did People Use to Erase Pencil Before Erasers?” (36 s)"
         }
       ],
-      "failures": 18,
-      "started": "2026-10-18T18:39:31Z"
+      "failures": 19
     },
     "trading": {
       "name": "Trading Desk",
