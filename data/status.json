@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-18T14:01:12Z",
+  "updated": "2026-10-18T18:39:32Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-18T14:01:11Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39133862790",
@@ -118,7 +118,8 @@
           "headline": "Made “What Did People Use to Erase Pencil Before Erasers?” (36 s)"
         }
       ],
-      "failures": 18
+      "failures": 18,
+      "started": "2026-10-18T18:39:31Z"
     },
     "trading": {
       "name": "Trading Desk",
