@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-19T18:16:22Z",
+  "updated": "2026-10-19T18:20:00Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “The Scream Mask Wasn't Made for the Movie” (32 s)",
       "last_run": "2026-10-19T18:16:21Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39300041517",
@@ -118,7 +118,8 @@
           "headline": "Run failed, check the log"
         }
       ],
-      "failures": 20
+      "failures": 20,
+      "started": "2026-10-19T18:20:00Z"
     },
     "trading": {
       "name": "Trading Desk",
