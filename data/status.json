@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-19T20:12:32Z",
+  "updated": "2026-10-19T21:04:58Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “Day 1: A Solar Storm Kills the Power. What Do You Do First? (Part 1)” (42 s)",
       "last_run": "2026-10-19T20:12:32Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39315562684",
@@ -118,7 +118,8 @@
           "headline": "Run failed, check the log"
         }
       ],
-      "failures": 21
+      "failures": 21,
+      "started": "2026-10-19T21:04:58Z"
     },
     "trading": {
       "name": "Trading Desk",
