@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-19T19:31:21Z",
+  "updated": "2026-10-19T19:35:31Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “What If You Could Freeze Solid Like a Wood Frog?” (25 s)",
-      "last_run": "2026-10-19T18:53:22Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39305081429",
-      "runs": 45,
+      "state": "ok",
+      "headline": "Made “Zombie Outbreak at Sea: Day 1 🧟 Could You Survive? (Part 1)” (24 s)",
+      "last_run": "2026-10-19T19:35:31Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39311309215",
+      "runs": 46,
       "totals": {
-        "Shorts made": 25,
-        "Minutes of video": 16.64,
-        "Uploaded to YouTube": 23
+        "Shorts made": 26,
+        "Minutes of video": 17.04,
+        "Uploaded to YouTube": 24
       },
       "history": [
+        {
+          "time": "2026-10-19T19:35:31Z",
+          "state": "ok",
+          "headline": "Made “Zombie Outbreak at Sea: Day 1 🧟 Could You Survive? (Part 1)” (24 s)"
+        },
         {
           "time": "2026-10-19T18:53:22Z",
           "state": "ok",
@@ -111,15 +116,9 @@
           "time": "2026-10-12T19:49:32Z",
           "state": "failed",
           "headline": "Run failed, check the log"
-        },
-        {
-          "time": "2026-10-11T20:21:22Z",
-          "state": "failed",
-          "headline": "Run failed, check the log"
         }
       ],
-      "failures": 20,
-      "started": "2026-10-19T19:31:21Z"
+      "failures": 20
     },
     "trading": {
       "name": "Trading Desk",
