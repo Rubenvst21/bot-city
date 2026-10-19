@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-19T20:02:40Z",
+  "updated": "2026-10-19T20:12:32Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Run failed, check the log",
-      "last_run": "2026-10-19T19:52:34Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39313940660",
-      "runs": 47,
+      "state": "ok",
+      "headline": "Made “Day 1: A Solar Storm Kills the Power. What Do You Do First? (Part 1)” (42 s)",
+      "last_run": "2026-10-19T20:12:32Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39315562684",
+      "runs": 48,
       "totals": {
-        "Shorts made": 26,
-        "Minutes of video": 17.04,
-        "Uploaded to YouTube": 24
+        "Shorts made": 27,
+        "Minutes of video": 17.75,
+        "Uploaded to YouTube": 25
       },
       "history": [
+        {
+          "time": "2026-10-19T20:12:32Z",
+          "state": "ok",
+          "headline": "Made “Day 1: A Solar Storm Kills the Power. What Do You Do First? (Part 1)” (42 s)"
+        },
         {
           "time": "2026-10-19T19:52:34Z",
           "state": "failed",
@@ -111,15 +116,9 @@
           "time": "2026-10-13T17:37:06Z",
           "state": "failed",
           "headline": "Run failed, check the log"
-        },
-        {
-          "time": "2026-10-12T22:58:33Z",
-          "state": "failed",
-          "headline": "Run failed, check the log"
         }
       ],
-      "failures": 21,
-      "started": "2026-10-19T20:02:40Z"
+      "failures": 21
     },
     "trading": {
       "name": "Trading Desk",
