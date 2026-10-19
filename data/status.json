@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-19T18:07:45Z",
+  "updated": "2026-10-19T18:11:34Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “3 Halloween Would You Rather Choices (The Last One Is Legally Real)” (51 s)",
       "last_run": "2026-10-19T18:07:45Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39298544617",
@@ -118,7 +118,8 @@
           "headline": "Run failed, check the log"
         }
       ],
-      "failures": 20
+      "failures": 20,
+      "started": "2026-10-19T18:11:34Z"
     },
     "trading": {
       "name": "Trading Desk",
