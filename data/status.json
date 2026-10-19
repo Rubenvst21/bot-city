@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-19T18:11:34Z",
+  "updated": "2026-10-19T18:16:22Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “3 Halloween Would You Rather Choices (The Last One Is Legally Real)” (51 s)",
-      "last_run": "2026-10-19T18:07:45Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39298544617",
-      "runs": 42,
+      "state": "ok",
+      "headline": "Made “The Scream Mask Wasn't Made for the Movie” (32 s)",
+      "last_run": "2026-10-19T18:16:21Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39300041517",
+      "runs": 43,
       "totals": {
-        "Shorts made": 22,
-        "Minutes of video": 15.14,
-        "Uploaded to YouTube": 20
+        "Shorts made": 23,
+        "Minutes of video": 15.68,
+        "Uploaded to YouTube": 21
       },
       "history": [
+        {
+          "time": "2026-10-19T18:16:21Z",
+          "state": "ok",
+          "headline": "Made “The Scream Mask Wasn't Made for the Movie” (32 s)"
+        },
         {
           "time": "2026-10-19T18:07:45Z",
           "state": "ok",
@@ -111,15 +116,9 @@
           "time": "2026-10-11T16:19:47Z",
           "state": "failed",
           "headline": "Run failed, check the log"
-        },
-        {
-          "time": "2026-10-10T20:04:45Z",
-          "state": "failed",
-          "headline": "Run failed, check the log"
         }
       ],
-      "failures": 20,
-      "started": "2026-10-19T18:11:34Z"
+      "failures": 20
     },
     "trading": {
       "name": "Trading Desk",
