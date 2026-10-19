@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-19T18:53:22Z",
+  "updated": "2026-10-19T19:31:21Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “What If You Could Freeze Solid Like a Wood Frog?” (25 s)",
       "last_run": "2026-10-19T18:53:22Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39305081429",
@@ -118,7 +118,8 @@
           "headline": "Run failed, check the log"
         }
       ],
-      "failures": 20
+      "failures": 20,
+      "started": "2026-10-19T19:31:21Z"
     },
     "trading": {
       "name": "Trading Desk",
