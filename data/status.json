@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-20T15:11:56Z",
+  "updated": "2026-10-20T16:27:07Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “3 Impossible Choices: The Last One Breaks People” (47 s)",
       "last_run": "2026-10-20T15:11:56Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39444399015",
@@ -118,7 +118,8 @@
           "headline": "Run failed, check the log"
         }
       ],
-      "failures": 21
+      "failures": 21,
+      "started": "2026-10-20T16:27:07Z"
     },
     "trading": {
       "name": "Trading Desk",
