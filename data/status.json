@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-20T15:04:15Z",
+  "updated": "2026-10-20T15:11:56Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “Would You Rather: The Last Choice Is Evil” (44 s)",
-      "last_run": "2026-10-19T21:11:54Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39324136456",
-      "runs": 49,
+      "state": "ok",
+      "headline": "Made “3 Impossible Choices: The Last One Breaks People” (47 s)",
+      "last_run": "2026-10-20T15:11:56Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39444399015",
+      "runs": 50,
       "totals": {
-        "Shorts made": 28,
-        "Minutes of video": 18.48,
-        "Uploaded to YouTube": 26
+        "Shorts made": 29,
+        "Minutes of video": 19.27,
+        "Uploaded to YouTube": 27
       },
       "history": [
+        {
+          "time": "2026-10-20T15:11:56Z",
+          "state": "ok",
+          "headline": "Made “3 Impossible Choices: The Last One Breaks People” (47 s)"
+        },
         {
           "time": "2026-10-19T21:11:54Z",
           "state": "ok",
@@ -111,15 +116,9 @@
           "time": "2026-10-14T15:07:13Z",
           "state": "failed",
           "headline": "Run failed, check the log"
-        },
-        {
-          "time": "2026-10-13T21:15:46Z",
-          "state": "failed",
-          "headline": "Run failed, check the log"
         }
       ],
-      "failures": 21,
-      "started": "2026-10-20T15:04:15Z"
+      "failures": 21
     },
     "trading": {
       "name": "Trading Desk",
