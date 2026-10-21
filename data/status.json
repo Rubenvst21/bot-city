@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-21T19:20:28Z",
+  "updated": "2026-10-21T20:10:22Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made 2 Shorts",
       "last_run": "2026-10-21T19:20:27Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39656895163",
@@ -118,7 +118,8 @@
           "headline": "Run failed, check the log"
         }
       ],
-      "failures": 21
+      "failures": 21,
+      "started": "2026-10-21T20:10:22Z"
     },
     "trading": {
       "name": "Trading Desk",
