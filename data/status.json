@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-20T20:09:25Z",
+  "updated": "2026-10-21T10:29:36Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “Would You Rather: The Last Choice Is Brutal” (44 s)",
       "last_run": "2026-10-20T20:09:25Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39488029565",
@@ -118,7 +118,8 @@
           "headline": "Run failed, check the log"
         }
       ],
-      "failures": 21
+      "failures": 21,
+      "started": "2026-10-21T10:29:36Z"
     },
     "trading": {
       "name": "Trading Desk",
