@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-22T09:46:05Z",
+  "updated": "2026-10-22T10:09:40Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “Zombie Outbreak on a Night Train 🧟 Day 1 (Part 1)” (62 s)",
-      "last_run": "2026-10-22T09:39:37Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39755088276",
-      "runs": 57,
+      "state": "ok",
+      "headline": "Made 2 Shorts",
+      "last_run": "2026-10-22T10:09:40Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39757428204",
+      "runs": 58,
       "totals": {
-        "Shorts made": 39,
-        "Minutes of video": 27.1,
-        "Uploaded to YouTube": 37
+        "Shorts made": 41,
+        "Minutes of video": 29.08,
+        "Uploaded to YouTube": 39
       },
       "history": [
+        {
+          "time": "2026-10-22T10:09:40Z",
+          "state": "ok",
+          "headline": "Made 2 Shorts"
+        },
         {
           "time": "2026-10-22T09:39:37Z",
           "state": "ok",
@@ -111,15 +116,9 @@
           "time": "2026-10-18T14:01:11Z",
           "state": "failed",
           "headline": "Run failed, check the log"
-        },
-        {
-          "time": "2026-10-17T18:30:07Z",
-          "state": "failed",
-          "headline": "Run failed, check the log"
         }
       ],
-      "failures": 21,
-      "started": "2026-10-22T09:46:04Z"
+      "failures": 21
     },
     "trading": {
       "name": "Trading Desk",
