@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-22T15:24:46Z",
+  "updated": "2026-10-22T18:08:30Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “Would You Rather? The Last Choice Breaks Everyone” (40 s)",
       "last_run": "2026-10-22T15:24:46Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39802509188",
@@ -118,7 +118,8 @@
           "headline": "Run failed, check the log"
         }
       ],
-      "failures": 21
+      "failures": 21,
+      "started": "2026-10-22T18:08:30Z"
     },
     "trading": {
       "name": "Trading Desk",
