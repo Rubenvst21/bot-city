@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-22T09:39:38Z",
+  "updated": "2026-10-22T09:46:05Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “Zombie Outbreak on a Night Train 🧟 Day 1 (Part 1)” (62 s)",
       "last_run": "2026-10-22T09:39:37Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39755088276",
@@ -118,7 +118,8 @@
           "headline": "Run failed, check the log"
         }
       ],
-      "failures": 21
+      "failures": 21,
+      "started": "2026-10-22T09:46:04Z"
     },
     "trading": {
       "name": "Trading Desk",
