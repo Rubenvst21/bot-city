@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-23T20:00:52Z",
+  "updated": "2026-10-23T20:01:01Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
+      "state": "failed",
       "headline": "Run failed, check the log",
-      "last_run": "2026-10-23T15:04:07Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39974456747",
-      "runs": 63,
+      "last_run": "2026-10-23T20:01:00Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40015332730",
+      "runs": 64,
       "totals": {
         "Shorts made": 42,
         "Minutes of video": 29.74,
         "Uploaded to YouTube": 40
       },
       "history": [
+        {
+          "time": "2026-10-23T20:01:00Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-23T15:04:07Z",
           "state": "failed",
@@ -111,15 +116,9 @@
           "time": "2026-10-19T18:53:22Z",
           "state": "ok",
           "headline": "Made “What If You Could Freeze Solid Like a Wood Frog?” (25 s)"
-        },
-        {
-          "time": "2026-10-19T18:25:20Z",
-          "state": "ok",
-          "headline": "Made “The 1518 Dancing Plague Had the Strangest Cure” (33 s)"
         }
       ],
-      "failures": 25,
-      "started": "2026-10-23T20:00:52Z"
+      "failures": 26
     },
     "trading": {
       "name": "Trading Desk",
