@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-23T15:04:08Z",
+  "updated": "2026-10-23T20:00:52Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-23T15:04:07Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/39974456747",
@@ -118,7 +118,8 @@
           "headline": "Made “The 1518 Dancing Plague Had the Strangest Cure” (33 s)"
         }
       ],
-      "failures": 25
+      "failures": 25,
+      "started": "2026-10-23T20:00:52Z"
     },
     "trading": {
       "name": "Trading Desk",
