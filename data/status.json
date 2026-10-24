@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T21:01:01Z",
+  "updated": "2026-10-24T21:26:14Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -8,15 +8,20 @@
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
       "state": "failed",
       "headline": "Run failed, check the log",
-      "last_run": "2026-10-24T21:01:01Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40132004081",
-      "runs": 69,
+      "last_run": "2026-10-24T21:26:13Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40134097821",
+      "runs": 70,
       "totals": {
         "Shorts made": 43,
         "Minutes of video": 30.5,
         "Uploaded to YouTube": 40
       },
       "history": [
+        {
+          "time": "2026-10-24T21:26:13Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-24T21:01:01Z",
           "state": "failed",
@@ -111,14 +116,9 @@
           "time": "2026-10-20T16:52:22Z",
           "state": "ok",
           "headline": "Made 2 Shorts"
-        },
-        {
-          "time": "2026-10-20T15:11:56Z",
-          "state": "ok",
-          "headline": "Made “3 Impossible Choices: The Last One Breaks People” (47 s)"
         }
       ],
-      "failures": 30
+      "failures": 31
     },
     "trading": {
       "name": "Trading Desk",
