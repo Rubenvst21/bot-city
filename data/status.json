@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-24T20:28:20Z",
+  "updated": "2026-10-24T21:01:01Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
-      "headline": "Made “03:17 — A Voice Calls Your Name | The Last Signal Pt.1 (Part 1)” (46 s)",
-      "last_run": "2026-10-24T20:28:19Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40129011373",
-      "runs": 68,
+      "state": "failed",
+      "headline": "Run failed, check the log",
+      "last_run": "2026-10-24T21:01:01Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40132004081",
+      "runs": 69,
       "totals": {
         "Shorts made": 43,
         "Minutes of video": 30.5,
         "Uploaded to YouTube": 40
       },
       "history": [
+        {
+          "time": "2026-10-24T21:01:01Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-24T20:28:19Z",
           "state": "ok",
@@ -111,14 +116,9 @@
           "time": "2026-10-20T15:11:56Z",
           "state": "ok",
           "headline": "Made “3 Impossible Choices: The Last One Breaks People” (47 s)"
-        },
-        {
-          "time": "2026-10-19T21:11:54Z",
-          "state": "ok",
-          "headline": "Made “Would You Rather: The Last Choice Is Evil” (44 s)"
         }
       ],
-      "failures": 29
+      "failures": 30
     },
     "trading": {
       "name": "Trading Desk",
