@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-24T14:02:29Z",
+  "updated": "2026-10-24T18:49:50Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "failed",
+      "state": "running",
       "headline": "Run failed, check the log",
       "last_run": "2026-10-24T14:02:29Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40100491567",
@@ -118,7 +118,8 @@
           "headline": "Made “Zombie Outbreak at Sea: Day 1 🧟 Could You Survive? (Part 1)” (24 s)"
         }
       ],
-      "failures": 27
+      "failures": 27,
+      "started": "2026-10-24T18:49:50Z"
     },
     "trading": {
       "name": "Trading Desk",
