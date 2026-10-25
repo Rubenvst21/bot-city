@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-24T22:26:58Z",
+  "updated": "2026-10-25T14:23:55Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “The Dam's Backup Power Had a Terrifying Catch | The Last Signal Part 1” (62 s)",
       "last_run": "2026-10-24T22:26:58Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40137916956",
@@ -118,7 +118,8 @@
           "headline": "Made 2 Shorts"
         }
       ],
-      "failures": 32
+      "failures": 32,
+      "started": "2026-10-25T14:23:55Z"
     },
     "trading": {
       "name": "Trading Desk",
