@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-25T14:23:55Z",
+  "updated": "2026-10-25T14:24:06Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “The Dam's Backup Power Had a Terrifying Catch | The Last Signal Part 1” (62 s)",
-      "last_run": "2026-10-24T22:26:58Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40137916956",
-      "runs": 72,
+      "state": "failed",
+      "headline": "Run failed, check the log",
+      "last_run": "2026-10-25T14:24:06Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40201698333",
+      "runs": 73,
       "totals": {
         "Shorts made": 44,
         "Minutes of video": 31.53,
         "Uploaded to YouTube": 41
       },
       "history": [
+        {
+          "time": "2026-10-25T14:24:06Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-24T22:26:58Z",
           "state": "ok",
@@ -111,15 +116,9 @@
           "time": "2026-10-21T15:21:26Z",
           "state": "ok",
           "headline": "Made “Would You Rather: The Last Choice Is Impossible” (41 s)"
-        },
-        {
-          "time": "2026-10-21T10:55:35Z",
-          "state": "ok",
-          "headline": "Made 2 Shorts"
         }
       ],
-      "failures": 32,
-      "started": "2026-10-25T14:23:55Z"
+      "failures": 33
     },
     "trading": {
       "name": "Trading Desk",
