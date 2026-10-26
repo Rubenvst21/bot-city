@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-26T16:49:33Z",
+  "updated": "2026-10-26T16:51:49Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “The Gate Wouldn't Stop | The Last Signal Part 2” (45 s)",
-      "last_run": "2026-10-26T15:31:48Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40349196923",
-      "runs": 77,
+      "state": "ok",
+      "headline": "Made “How Coca-Cola's Original Bottle Boosted Sales 60%” (27 s)",
+      "last_run": "2026-10-26T16:51:49Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40362277460",
+      "runs": 78,
       "totals": {
-        "Shorts made": 46,
-        "Minutes of video": 33.45,
-        "Uploaded to YouTube": 43
+        "Shorts made": 47,
+        "Minutes of video": 33.89,
+        "Uploaded to YouTube": 44
       },
       "history": [
+        {
+          "time": "2026-10-26T16:51:49Z",
+          "state": "ok",
+          "headline": "Made “How Coca-Cola's Original Bottle Boosted Sales 60%” (27 s)"
+        },
         {
           "time": "2026-10-26T15:31:48Z",
           "state": "ok",
@@ -111,15 +116,9 @@
           "time": "2026-10-22T15:24:46Z",
           "state": "ok",
           "headline": "Made “Would You Rather? The Last Choice Breaks Everyone” (40 s)"
-        },
-        {
-          "time": "2026-10-22T10:09:40Z",
-          "state": "ok",
-          "headline": "Made 2 Shorts"
         }
       ],
-      "failures": 35,
-      "started": "2026-10-26T16:49:33Z"
+      "failures": 35
     },
     "trading": {
       "name": "Trading Desk",
