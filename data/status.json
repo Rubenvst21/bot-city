@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-26T08:47:48Z",
+  "updated": "2026-10-26T15:28:36Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “3 Would-You-Rather Questions That Will Break You” (70 s)",
       "last_run": "2026-10-26T08:47:48Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40293108412",
@@ -118,7 +118,8 @@
           "headline": "Made “Zombie Outbreak on a Night Train 🧟 Day 1 (Part 1)” (62 s)"
         }
       ],
-      "failures": 35
+      "failures": 35,
+      "started": "2026-10-26T15:28:36Z"
     },
     "trading": {
       "name": "Trading Desk",
