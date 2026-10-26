@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-26T15:28:36Z",
+  "updated": "2026-10-26T15:31:49Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “3 Would-You-Rather Questions That Will Break You” (70 s)",
-      "last_run": "2026-10-26T08:47:48Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40293108412",
-      "runs": 76,
+      "state": "ok",
+      "headline": "Made “The Gate Wouldn't Stop | The Last Signal Part 2” (45 s)",
+      "last_run": "2026-10-26T15:31:48Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40349196923",
+      "runs": 77,
       "totals": {
-        "Shorts made": 45,
-        "Minutes of video": 32.7,
-        "Uploaded to YouTube": 42
+        "Shorts made": 46,
+        "Minutes of video": 33.45,
+        "Uploaded to YouTube": 43
       },
       "history": [
+        {
+          "time": "2026-10-26T15:31:48Z",
+          "state": "ok",
+          "headline": "Made “The Gate Wouldn't Stop | The Last Signal Part 2” (45 s)"
+        },
         {
           "time": "2026-10-26T08:47:48Z",
           "state": "ok",
@@ -111,15 +116,9 @@
           "time": "2026-10-22T10:09:40Z",
           "state": "ok",
           "headline": "Made 2 Shorts"
-        },
-        {
-          "time": "2026-10-22T09:39:37Z",
-          "state": "ok",
-          "headline": "Made “Zombie Outbreak on a Night Train 🧟 Day 1 (Part 1)” (62 s)"
         }
       ],
-      "failures": 35,
-      "started": "2026-10-26T15:28:36Z"
+      "failures": 35
     },
     "trading": {
       "name": "Trading Desk",
