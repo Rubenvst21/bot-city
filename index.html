@@ -99,6 +99,48 @@
   @keyframes ticker { to { transform: translateX(-100%); } }
   @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; padding-left: 16px; } .dot.running { animation: none; } }
   .notice { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--muted); }
+
+  /* Business control room: lightweight overlay, independent of the 3D renderer. */
+  .control-toggle { position: fixed; top: 18px; right: 18px; z-index: 8; border: 1px solid #52718a; border-radius: 12px; background: #101b30; color: #f5f8ff; padding: 10px 14px; cursor: pointer; font: 700 13px var(--body); box-shadow: 0 10px 35px #0008; }
+  .control-toggle:focus-visible, .control-room a:focus-visible, .control-room button:focus-visible { outline: 2px solid #6ce5e1; outline-offset: 3px; }
+  .control-room { position: fixed; z-index: 6; left: 16px; top: 94px; bottom: 47px; width: min(340px, calc(100vw - 32px)); display: flex; flex-direction: column; background: rgba(9, 17, 37, 0.95); border: 1px solid #34506c; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 65px #0009; backdrop-filter: blur(18px); }
+  .control-room[hidden] { display: none; }
+  .cr-top { padding: 18px 18px 12px; border-bottom: 1px solid #30405b; }
+  .cr-kicker { font: 700 11px var(--body); text-transform: uppercase; letter-spacing: .18em; color: #78d5d6; }
+  .cr-top h2 { font: 700 25px var(--display); letter-spacing: .07em; margin: 4px 0; }
+  .cr-top p { margin: 0; color: #b1c0d5; font-size: 12px; line-height: 1.5; }
+  .cr-scroll { overflow-y: auto; padding: 14px 16px 20px; overscroll-behavior: contain; }
+  .cr-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+  .cr-metric { border-radius: 11px; padding: 12px 8px; background: #14223b; border: 1px solid #2b405b; }
+  .cr-metric strong { display: block; font: 700 24px var(--display); color: white; }
+  .cr-metric span { color: #b3c5d9; font-size: 10px; }
+  .cr-heading { font: 700 12px var(--body); text-transform: uppercase; letter-spacing: .12em; color: #d5e5f5; margin: 18px 0 9px; }
+  .cr-role { display: flex; align-items: center; gap: 10px; padding: 9px 11px; border: 1px solid #324a65; border-radius: 11px; margin-top: 6px; }
+  .cr-role b, .cr-bot-name { display: block; font-size: 12px; }
+  .cr-role small { color: #a7b9cc; display: block; font-size: 10px; margin-top: 3px; }
+  .cr-role .cr-emoji { font-size: 20px; }
+  .cr-planned { color: #dbbf80; font-size: 10px; margin-left: auto; white-space: nowrap; }
+  .cr-department { margin-top: 9px; border: 1px solid #304763; border-radius: 13px; overflow: hidden; background: #101c32; }
+  .cr-dept-title { padding: 11px 12px; background: #192b46; display: flex; justify-content: space-between; gap: 8px; font: 700 12px var(--body); }
+  .cr-dept-count { font-size: 10px; color: #b3c5d9; }
+  .cr-bot { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-top: 1px solid #2b3e56; }
+  .cr-bot-meta { min-width: 0; flex: 1; }
+  .cr-bot-meta small { display: block; color: #a5b5c8; font-size: 10px; margin-top: 3px; }
+  .cr-bot a { color: #9ce8e3; font-size: 11px; text-decoration: underline; }
+  .cr-status { width: 8px; height: 8px; border-radius: 50%; flex: none; background: #929bb0; }
+  .cr-status.ok { background: #3cff9e; } .cr-status.failed { background: #ff637c; }
+  .cr-status.running { background: #ffcf69; } .cr-status.planned { background: #929bb0; }
+  .cr-note { font-size: 11px; line-height: 1.5; color: #aebfd1; margin: 12px 0 0; }
+  .cr-warning { border-left: 3px solid #ffcf69; background: #283044; padding: 9px 10px; border-radius: 8px; font-size: 11px; line-height: 1.45; }
+  .cr-empty { color: #b6c6d8; font-size: 12px; padding: 12px; }
+  @media (min-width: 760px) { .hud { left: 380px; } .control-toggle { display: none; } #sheet.open { z-index: 7; } }
+  @media (max-width: 759px) {
+    .control-room { top: calc(env(safe-area-inset-top) + 66px); bottom: 44px; width: min(360px, calc(100vw - 24px)); left: 12px; }
+    .control-toggle { top: calc(env(safe-area-inset-top) + 12px); right: 12px; }
+    .hud { padding-right: 134px; } .hud h1 { font-size: 22px; } .hud p { max-width: 260px; }
+    .sheet-open .control-room { display: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -107,10 +149,138 @@
   <h1>BOT CITY</h1>
   <p id="summary">Loading the city…</p>
 </header>
+
+<button class="control-toggle" id="crToggle" type="button" aria-controls="controlRoom" aria-expanded="false">☷ Control Room</button>
+<aside class="control-room" id="controlRoom" aria-label="Bot City control room">
+  <div class="cr-top">
+    <span class="cr-kicker">Business operations</span>
+    <h2>COMMAND CENTRE</h2>
+    <p>See what is running, what needs attention and which teams are planned.</p>
+  </div>
+  <div class="cr-scroll">
+    <div class="cr-metrics" aria-label="Live bot summary">
+      <div class="cr-metric"><strong id="crLive">—</strong><span>Active bots</span></div>
+      <div class="cr-metric"><strong id="crProblems">—</strong><span>Need attention</span></div>
+      <div class="cr-metric"><strong id="crPlanned">—</strong><span>Planned bots</span></div>
+    </div>
+    <div id="crAlert" class="cr-warning" style="margin-top:12px" role="status">Loading bot reports…</div>
+    <h3 class="cr-heading">Leadership structure</h3>
+    <div class="cr-role"><span class="cr-emoji" aria-hidden="true">🏛️</span><span><b>Owner / Director</b><small>Approves publishing, spending and major decisions</small></span><span class="cr-planned">YOU</span></div>
+    <div class="cr-role"><span class="cr-emoji" aria-hidden="true">🧭</span><span><b>Operations Manager</b><small>Coordinates teams and resolves routine issues</small></span><span class="cr-planned">PLANNED</span></div>
+    <div class="cr-role"><span class="cr-emoji" aria-hidden="true">🛡️</span><span><b>Quality Supervisor</b><small>Checks accuracy, quality and completion</small></span><span class="cr-planned">PLANNED</span></div>
+    <h3 class="cr-heading">Departments</h3>
+    <div id="crDepartments" aria-live="polite"><p class="cr-empty">Loading departments…</p></div>
+    <p class="cr-note" id="crUpdated">Bot states are based on reported runs, not on real-time Shopify sales or YouTube analytics.</p>
+    <p class="cr-note">The manager and supervisor are an organisational proposal, not working automations yet. Publishing and spending remain owner-approved.</p>
+  </div>
+</aside>
+
 <div id="labels"></div>
 <section id="sheet" aria-live="polite"></section>
 <footer class="ticker"><div class="ticker-track" id="ticker"></div></footer>
 <noscript><div class="notice">Bot City needs JavaScript to draw the city.</div></noscript>
+
+<script>
+/* Read-only control room: consumes the same public status.json as the 3D city. */
+(() => {
+  const panel = document.getElementById("controlRoom");
+  const toggle = document.getElementById("crToggle");
+  const depts = document.getElementById("crDepartments");
+  const alertBox = document.getElementById("crAlert");
+  const labels = { ok: "Last run succeeded", failed: "Last run failed", running: "Running", planned: "Planned", idle: "Not started" };
+  const departments = [
+    { title: "Creative Studio", bots: ["shorts"], note: "Videos, editing and content" },
+    { title: "Commerce & Store", bots: ["scout","builder","orders"], note: "Products, listings and fulfilment" },
+    { title: "Finance & Research", bots: ["trading"], note: "Paper trading and analysis" }
+  ];
+  toggle.addEventListener("click", () => {
+    panel.hidden = !panel.hidden;
+    toggle.setAttribute("aria-expanded", String(!panel.hidden));
+    toggle.textContent = panel.hidden ? "☷ Control Room" : "× Close panel";
+  });
+  const isMobile = matchMedia("(max-width: 759px)");
+  if (isMobile.matches) panel.hidden = true;
+  function node(tag, className, value) {
+    const e = document.createElement(tag);
+    if (className) e.className = className;
+    if (value !== undefined) e.textContent = String(value);
+    return e;
+  }
+  function safeRunLink(value) {
+    try {
+      const url = new URL(value);
+      return url.protocol === "https:" && url.hostname === "github.com" &&
+        url.pathname.startsWith("/Rubenvst21/Bots/actions/runs/") ? url.href : null;
+    } catch { return null; }
+  }
+  function addBot(container, bot, id) {
+    const row = node("div", "cr-bot");
+    const dot = node("span", "cr-status " + (bot.state || "idle"));
+    dot.setAttribute("aria-hidden", "true");
+    const meta = node("div", "cr-bot-meta");
+    meta.append(node("span", "cr-bot-name", (bot.emoji || "🤖") + " " + (bot.name || id)));
+    meta.append(node("small", "", labels[bot.state] || "Status unknown"));
+    row.append(dot, meta);
+    const url = safeRunLink(bot.run_url);
+    if (url) {
+      const link = node("a", "", "View run");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", "View GitHub run for " + (bot.name || id));
+      row.append(link);
+    }
+    container.append(row);
+  }
+  function render(data) {
+    const bots = data?.bots || {};
+    const active = Object.values(bots).filter(b => b.state && b.state !== "planned");
+    const failed = active.filter(b => b.state === "failed");
+    document.getElementById("crLive").textContent = active.length;
+    document.getElementById("crProblems").textContent = failed.length;
+    document.getElementById("crPlanned").textContent = Object.values(bots).filter(b => b.state === "planned").length;
+    alertBox.textContent = failed.length
+      ? failed.length + " bot(s) have a failed last run. Inspect their GitHub logs."
+      : "No failed last run reported. Check individual bot details for pending work.";
+    depts.replaceChildren();
+    const included = new Set();
+    for (const department of departments) {
+      const card = node("section", "cr-department");
+      const heading = node("div", "cr-dept-title");
+      heading.append(node("span", "", department.title), node("span", "cr-dept-count", department.note));
+      card.append(heading);
+      const found = department.bots.filter(id => bots[id]);
+      for (const id of found) { included.add(id); addBot(card,bots[id],id); }
+      if (!found.length) card.append(node("p", "cr-empty", "No reporting bot yet"));
+      depts.append(card);
+    }
+    const other = Object.keys(bots).filter(id => !included.has(id));
+    if (other.length) {
+      const card = node("section", "cr-department");
+      card.append(node("div", "cr-dept-title", "Other bot reports"));
+      other.forEach(id => addBot(card, bots[id], id));
+      depts.append(card);
+    }
+    const updated = data.updated ? new Date(data.updated) : null;
+    document.getElementById("crUpdated").textContent =
+      "Bot reports last updated: " + (updated && !isNaN(updated.getTime()) ? updated.toLocaleString() : "unknown") +
+      ". These are workflow statuses, not verified sales or video performance.";
+  }
+  async function refresh() {
+    try {
+      const response = await fetch("data/status.json?t=" + Date.now(), { cache: "no-store" });
+      if (!response.ok) throw new Error("Status unavailable");
+      render(await response.json());
+    } catch {
+      alertBox.textContent = "Could not load bot reports. The 3D city may still show previously loaded data.";
+      if (!depts.children.length || depts.querySelector(".cr-empty")) depts.replaceChildren(node("p","cr-empty","Status temporarily unavailable"));
+    }
+  }
+  refresh();
+  setInterval(refresh, 120000);
+})();
+</script>
+
 <script type="module" src="city.js"></script>
 </body>
 </html>
