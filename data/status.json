@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-26T15:31:49Z",
+  "updated": "2026-10-26T16:49:33Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “The Gate Wouldn't Stop | The Last Signal Part 2” (45 s)",
       "last_run": "2026-10-26T15:31:48Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40349196923",
@@ -118,7 +118,8 @@
           "headline": "Made 2 Shorts"
         }
       ],
-      "failures": 35
+      "failures": 35,
+      "started": "2026-10-26T16:49:33Z"
     },
     "trading": {
       "name": "Trading Desk",
