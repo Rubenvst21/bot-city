@@ -1,0 +1,46 @@
+name: Build and verify isometric Bot City
+on:
+  push:
+    branches:
+      - feature/isometric-mini-city-20261026
+    paths:
+      - src/city.js
+      - index.html
+      - .github/workflows/build-isometric.yml
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Build browser bundle
+        run: npm ci && npm run build
+      - name: Validate the interface contract
+        run: |
+          node --check src/city.js
+          node --check city.js
+          node - <<'JS'
+          const fs=require('fs');
+          const html=fs.readFileSync('index.html','utf8');
+          const js=fs.readFileSync('src/city.js','utf8');
+          if (!html.includes('id="scene"') || !html.includes('id="controlRoom"')) throw Error('Missing interactive page elements');
+          if (!js.includes('buildDistrict') || !js.includes('makeLabel') || !js.includes('fetchStatus')) throw Error('Missing bot state or 3D features');
+          console.log('3D source and control room checks passed');
+          JS
+      - name: Commit compiled city.js back to this review branch
+        run: |
+          if ! git diff --quiet -- city.js; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add city.js
+            git commit -m "Build interactive city bundle [skip ci]"
+            git push
+          fi
