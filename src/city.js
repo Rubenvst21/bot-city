@@ -23,22 +23,22 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("#06041a");
-scene.fog = new THREE.FogExp2("#0d0833", 0.0032);
+scene.background = new THREE.Color("#101629");
+scene.fog = new THREE.FogExp2("#11172a", 0.0026);
 
 const camera = new THREE.PerspectiveCamera(50, 1, 0.5, 900);
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.enablePan = false;
 controls.autoRotate = !reducedMotion;
-controls.autoRotateSpeed = 0.35;
+controls.autoRotateSpeed = 0.13;
 controls.minDistance = 25;
 controls.maxDistance = 320;
 controls.maxPolarAngle = 1.38;
 controls.target.set(0, 6, 0);
 
-scene.add(new THREE.HemisphereLight("#8a7dff", "#080420", 0.9));
-const moon = new THREE.DirectionalLight("#b9a8ff", 0.8);
+scene.add(new THREE.HemisphereLight("#d1e9ff", "#101122", 1.65));
+const moon = new THREE.DirectionalLight("#fff0d9", 1.6);
 moon.position.set(-40, 80, 30);
 scene.add(moon);
 
@@ -177,37 +177,153 @@ function ring(radius, color, tube = 0.22) {
   return group;
 }
 
-function buildHQ() {
-  const group = new THREE.Group();
-  const stripes = document.createElement("canvas");
-  stripes.width = 256;
-  stripes.height = 32;
-  const g = stripes.getContext("2d");
-  g.fillStyle = "#3a1e05";
-  g.fillRect(0, 0, 256, 32);
-  for (let x = 0; x < 256; x += 16) {
-    g.fillStyle = "#ffcf8a";
-    g.fillRect(x + 3, 0, 9, 32);
+
+/* Miniature workplace kit. Low-polygon shapes make a real, explorable
+   Three.js city on phones without image downloads or new paid services. */
+const MAT = {
+  stone: new THREE.MeshStandardMaterial({color:"#303d58",roughness:.86}),
+  wall: new THREE.MeshStandardMaterial({color:"#6a7994",roughness:.72}),
+  wallLight: new THREE.MeshStandardMaterial({color:"#a2b5ce",roughness:.7}),
+  trim: new THREE.MeshStandardMaterial({color:"#19263f",metalness:.35,roughness:.48}),
+  glass: new THREE.MeshStandardMaterial({color:"#65ccf0",metalness:.3,roughness:.2,emissive:"#104f73",emissiveIntensity:.5}),
+  pavement: new THREE.MeshStandardMaterial({color:"#1c263e",roughness:.88}),
+  foliage: new THREE.MeshStandardMaterial({color:"#4b8b6e",roughness:.95}),
+  foliageLight: new THREE.MeshStandardMaterial({color:"#82ad75",roughness:.95}),
+  robot: new THREE.MeshStandardMaterial({color:"#e0eaf1",roughness:.42,metalness:.16}),
+  face: new THREE.MeshStandardMaterial({color:"#112b48",roughness:.22,metalness:.3}),
+  gold: new THREE.MeshStandardMaterial({color:"#ffcc7e",emissive:"#77501f",emissiveIntensity:.5}),
+  cyan: new THREE.MeshStandardMaterial({color:"#51e8ed",emissive:"#33a4b8",emissiveIntensity:.7}),
+};
+function cube(parent,mat,w,h,d,x,y,z) {
+  const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);
+  o.position.set(x,y,z); parent.add(o); return o;
+}
+function ball(parent,mat,r,x,y,z,segments=12){
+  const o=new THREE.Mesh(new THREE.SphereGeometry(r,segments,8),mat);
+  o.position.set(x,y,z); parent.add(o); return o;
+}
+function upright(parent,mat,r,height,x,y,z){
+  const o=new THREE.Mesh(new THREE.CylinderGeometry(r,r,height,10),mat);
+  o.position.set(x,y,z);parent.add(o);return o;
+}
+function neon(parent,color,x,y,z,w,d=.23){
+  const material=new THREE.MeshBasicMaterial({color});
+  return cube(parent,material,w,.11,d,x,y,z);
+}
+function tinyRobot(parent,x,z,scale=.8,twist=0) {
+  const bot=new THREE.Group(); bot.position.set(x,.7,z);bot.rotation.y=twist;bot.scale.setScalar(scale);
+  cube(bot,MAT.robot,1.25,1,1.05,0,1.15,0);
+  cube(bot,MAT.face,1.08,.47,.1,0,1.3,.56);
+  ball(bot,MAT.cyan,.11,-.28,1.32,.65);
+  ball(bot,MAT.cyan,.11,.28,1.32,.65);
+  cube(bot,MAT.robot,.3,.65,.3,-.45,.33,0);
+  cube(bot,MAT.robot,.3,.65,.3,.45,.33,0);
+  cube(bot,MAT.robot,.28,.65,.3,-.8,1,0);
+  cube(bot,MAT.robot,.28,.65,.3,.8,1,0);
+  upright(bot,MAT.gold,.065,.4,0,1.9,0);
+  ball(bot,MAT.cyan,.13,0,2.15,0);
+  parent.add(bot);return bot;
+}
+function tinyTree(parent,x,z,s=1){
+  const tree=new THREE.Group();tree.position.set(x,.7,z);tree.scale.setScalar(s);
+  upright(tree,MAT.trim,.17,1.6,0,.8,0);
+  const top=new THREE.Mesh(new THREE.IcosahedronGeometry(1.1,0),MAT.foliage);
+  top.position.y=2;tree.add(top);
+  const crown=new THREE.Mesh(new THREE.IcosahedronGeometry(.68,0),MAT.foliageLight);
+  crown.position.set(.35,2.4,.15);tree.add(crown);
+  parent.add(tree);
+}
+function miniPlatform(group,color){
+  const p=new THREE.Mesh(new THREE.CylinderGeometry(12,12.2,1.25,6),MAT.pavement);
+  p.rotation.y=Math.PI/6;p.position.y=.5;group.add(p);
+  const border=new THREE.LineSegments(new THREE.EdgesGeometry(p.geometry),new THREE.LineBasicMaterial({color}));
+  border.position.copy(p.position);border.rotation.copy(p.rotation);group.add(border);
+  const inlay=new THREE.Mesh(new THREE.CylinderGeometry(10.7,10.7,.16,6),
+    new THREE.MeshStandardMaterial({color:"#34415a",roughness:.88}));
+  inlay.rotation.y=Math.PI/6;inlay.position.y=1.15;group.add(inlay);
+}
+function studioBuilding(group){
+  cube(group,MAT.wallLight,11,6,8,0,4.25,0);
+  cube(group,MAT.trim,12,1,9,0,7.8,0);
+  cube(group,MAT.face,6,4.3,.28,0,4.8,4.1);
+  cube(group,new THREE.MeshBasicMaterial({color:"#f66ca5"}),3.7,2.8,.1,0,4.9,4.3);
+  // Universal play symbol, visible from a mobile overview.
+  const play=new THREE.Mesh(new THREE.ConeGeometry(.88,.95,3),MAT.robot);
+  play.rotation.z=-Math.PI/2;play.position.set(.12,4.95,4.49);group.add(play);
+  for(const x of [-4.7,4.7]){
+    upright(group,MAT.trim,.14,5,x,4,5.7);
+    cube(group,MAT.trim,1,.7,.6,x,6.65,5.7);
+    ball(group,MAT.gold,.25,x,7.1,5.7);
   }
-  const stripeMap = new THREE.CanvasTexture(stripes);
-  stripeMap.colorSpace = THREE.SRGBColorSpace;
-  const base = new THREE.Mesh(
-    new THREE.CylinderGeometry(6.2, 6.2, 4, 48, 1, true),
-    new THREE.MeshStandardMaterial({ color: "#1a0f05", emissive: "#ffffff", emissiveMap: stripeMap, emissiveIntensity: 1.1, side: THREE.DoubleSide }),
-  );
-  base.position.y = 2;
-  const dome = new THREE.Mesh(
-    new THREE.SphereGeometry(6.2, 48, 24, 0, Math.PI * 2, 0, Math.PI / 2),
-    new THREE.MeshStandardMaterial({ color: "#fff4e0", emissive: "#ffe2b0", emissiveIntensity: 1.6, roughness: 0.4 }),
-  );
-  dome.position.y = 4;
-  const plaza = new THREE.Mesh(new THREE.CylinderGeometry(10, 10.5, 0.5, 64), new THREE.MeshStandardMaterial({ color: "#151036" }));
-  plaza.position.y = 0.25;
-  const glow = glowSprite("#ffcf8a", 34, 0.55);
-  glow.position.y = 7;
-  group.add(plaza, base, dome, glow);
+}
+function shopBuilding(group){
+  cube(group,MAT.wallLight,10,7.2,8,0,4.8,0);
+  cube(group,MAT.trim,11,1,9,0,8.9,0);
+  cube(group,MAT.glass,7,4,.25,0,4.3,4.15);
+  neon(group,"#ffca7c",0,7.9,4.25,7);
+  for(const x of [-3.5,0,3.5])cube(group,MAT.trim,.35,4,.45,x,4.3,4.34);
+  cube(group,MAT.gold,3,1.3,1,0,2.3,5.3);
+  for(const x of [-3,0,3])cube(group,MAT.stone,1.9,1.7,2,x,2,7.1);
+}
+function builderBuilding(group){
+  cube(group,MAT.wall,9,5,8,0,3.75,0);
+  cube(group,MAT.wallLight,7,3.7,6,-.5,8.1,-.5);
+  cube(group,MAT.trim,8.2,.5,7.1,-.5,10.25,-.5);
+  // Distinctive yellow construction crane.
+  upright(group,MAT.gold,.28,12,4.1,8,-3.2);
+  cube(group,MAT.gold,11,.35,.46,.35,14,-3.2);
+  for(let x=-4;x<4;x+=2)cube(group,MAT.gold,.13,.12,1.1,x,14,-3.2);
+  cube(group,MAT.trim,.1,5,.12,-4.5,11.6,-3.2);
+  cube(group,MAT.gold,1.8,1.3,1.7,-4.5,8.45,-3.2);
+  cube(group,MAT.glass,3.6,2.4,.2,0,7.4,2.65);
+}
+function scoutBuilding(group){
+  const hub=new THREE.Mesh(new THREE.CylinderGeometry(5.4,6.1,4.7,10),MAT.wallLight);
+  hub.position.y=3.7;group.add(hub);
+  const cap=new THREE.Mesh(new THREE.SphereGeometry(4,20,10,0,Math.PI*2,0,Math.PI/2),MAT.glass);
+  cap.position.y=6.1;group.add(cap);
+  ball(group,MAT.cyan,1.4,0,7.4,0,14);
+  for(const x of [-5.2,5.2]){
+    cube(group,MAT.trim,2.3,3,.25,x,4.9,1);
+    cube(group,MAT.glass,2,2.5,.15,x,4.9,1.2);
+  }
+}
+function financeBuilding(group){
+  cube(group,MAT.wallLight,10,6.5,8,0,4.6,0);
+  cube(group,MAT.trim,11,.8,9,0,8.5,0);
+  cube(group,MAT.face,7.8,4,.24,0,5.45,4.15);
+  const bars=[1.1,2.5,1.9,3.3];
+  bars.forEach((h,i)=>cube(group,MAT.cyan,.9,h,.16,-2.8+i*1.75,4.2+h*.5,4.35));
+  neon(group,"#6bf5a6",0,2.7,4.3,7.2);
+}
+function makeWorkplace(group,id) {
+  if(id==="shorts")studioBuilding(group);
+  else if(id==="scout")scoutBuilding(group);
+  else if(id==="builder")builderBuilding(group);
+  else if(id==="orders")shopBuilding(group);
+  else if(id==="trading")financeBuilding(group);
+  else shopBuilding(group);
+}
+function buildHQ(){
+  const group=new THREE.Group();
+  miniPlatform(group,"#50e3ff");
+  const base=new THREE.Mesh(new THREE.CylinderGeometry(6.5,7.3,6.1,10),MAT.wallLight);
+  base.position.y=4.25;group.add(base);
+  const led=new THREE.Mesh(new THREE.TorusGeometry(5.7,.18,6,48),MAT.cyan);
+  led.rotation.x=Math.PI/2;led.position.y=7.4;group.add(led);
+  const dome=new THREE.Mesh(new THREE.SphereGeometry(3.5,24,14,0,Math.PI*2,0,Math.PI/2),MAT.glass);
+  dome.position.y=7.5;group.add(dome);
+  ball(group,MAT.cyan,1.15,0,8.9,0);
+  for(let i=0;i<6;i++){
+    const a=i*Math.PI/3;
+    cube(group,MAT.trim,1.35,3,.7,5.7*Math.cos(a),3.6,5.7*Math.sin(a));
+  }
+  tinyRobot(group,-7.5,3.9,.75,.2);
+  tinyRobot(group,7.4,3,.75,-.5);
+  tinyTree(group,-7,-5,.8);
+  tinyTree(group,6.5,-6,.8);
   scene.add(group);
-  return { group, top: new THREE.Vector3(0, 10.5, 0) };
+  return {group,top:new THREE.Vector3(0,11,0)};
 }
 
 const groundMaterial = buildGround();
