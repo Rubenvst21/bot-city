@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-26T08:27:16Z",
+  "updated": "2026-10-26T08:34:20Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
+      "state": "failed",
       "headline": "Run failed, check the log",
-      "last_run": "2026-10-25T19:14:12Z",
+      "last_run": "2026-10-26T08:34:19Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40223826434",
-      "runs": 74,
+      "runs": 75,
       "totals": {
         "Shorts made": 44,
         "Minutes of video": 31.53,
         "Uploaded to YouTube": 41
       },
       "history": [
+        {
+          "time": "2026-10-26T08:34:19Z",
+          "state": "failed",
+          "headline": "Run failed, check the log"
+        },
         {
           "time": "2026-10-25T19:14:12Z",
           "state": "failed",
@@ -111,15 +116,9 @@
           "time": "2026-10-21T20:17:36Z",
           "state": "ok",
           "headline": "Made “Would You Rather: $50K Now or $500 Every Week?” (45 s)"
-        },
-        {
-          "time": "2026-10-21T19:20:27Z",
-          "state": "ok",
-          "headline": "Made 2 Shorts"
         }
       ],
-      "failures": 34,
-      "started": "2026-10-26T08:27:16Z"
+      "failures": 35
     },
     "trading": {
       "name": "Trading Desk",
