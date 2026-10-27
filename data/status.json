@@ -1,22 +1,27 @@
 {
-  "updated": "2026-10-27T15:55:01Z",
+  "updated": "2026-10-27T15:57:24Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "running",
-      "headline": "Made “How Coca-Cola's Original Bottle Boosted Sales 60%” (27 s)",
-      "last_run": "2026-10-26T16:51:49Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40362277460",
-      "runs": 78,
+      "state": "ok",
+      "headline": "Made “How Coca-Cola Nearly Ruined New Year's Eve in 1997” (22 s)",
+      "last_run": "2026-10-27T15:57:24Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40535059993",
+      "runs": 79,
       "totals": {
-        "Shorts made": 47,
-        "Minutes of video": 33.89,
-        "Uploaded to YouTube": 44
+        "Shorts made": 48,
+        "Minutes of video": 34.26,
+        "Uploaded to YouTube": 45
       },
       "history": [
+        {
+          "time": "2026-10-27T15:57:24Z",
+          "state": "ok",
+          "headline": "Made “How Coca-Cola Nearly Ruined New Year's Eve in 1997” (22 s)"
+        },
         {
           "time": "2026-10-26T16:51:49Z",
           "state": "ok",
@@ -111,15 +116,9 @@
           "time": "2026-10-22T18:10:10Z",
           "state": "failed",
           "headline": "Run failed, check the log"
-        },
-        {
-          "time": "2026-10-22T15:24:46Z",
-          "state": "ok",
-          "headline": "Made “Would You Rather? The Last Choice Breaks Everyone” (40 s)"
         }
       ],
-      "failures": 35,
-      "started": "2026-10-27T15:55:00Z"
+      "failures": 35
     },
     "trading": {
       "name": "Trading Desk",
