@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-26T16:51:49Z",
+  "updated": "2026-10-27T15:55:01Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
       "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
-      "state": "ok",
+      "state": "running",
       "headline": "Made “How Coca-Cola's Original Bottle Boosted Sales 60%” (27 s)",
       "last_run": "2026-10-26T16:51:49Z",
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40362277460",
@@ -118,7 +118,8 @@
           "headline": "Made “Would You Rather? The Last Choice Breaks Everyone” (40 s)"
         }
       ],
-      "failures": 35
+      "failures": 35,
+      "started": "2026-10-27T15:55:00Z"
     },
     "trading": {
       "name": "Trading Desk",
