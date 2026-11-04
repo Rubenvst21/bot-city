@@ -220,11 +220,12 @@
   }
   function addBot(container, bot, id) {
     const row = node("div", "cr-bot");
-    const dot = node("span", "cr-status " + (bot.state || "idle"));
+    const staleReport = bot.last_run && Number.isFinite(Date.parse(bot.last_run)) && Date.now() - Date.parse(bot.last_run) >= 48 * 60 * 60 * 1000;
+    const dot = node("span", "cr-status " + (staleReport ? "idle" : (bot.state || "idle")));
     dot.setAttribute("aria-hidden", "true");
     const meta = node("div", "cr-bot-meta");
     meta.append(node("span", "cr-bot-name", (bot.emoji || "🤖") + " " + (bot.name || id)));
-    meta.append(node("small", "", labels[bot.state] || "Status unknown"));
+    meta.append(node("small", "", staleReport ? "Stale report — current status unknown" : (labels[bot.state] || "Status unknown"));
     row.append(dot, meta);
     const url = safeRunLink(bot.run_url);
     if (url) {
@@ -239,14 +240,17 @@
   }
   function render(data) {
     const bots = data?.bots || {};
-    const active = Object.values(bots).filter(b => b.state && b.state !== "planned");
+    const fresh = b => b.last_run && Number.isFinite(Date.parse(b.last_run)) && Date.now() - Date.parse(b.last_run) < 48 * 60 * 60 * 1000;
+    const active = Object.values(bots).filter(b => b.state && b.state !== "planned" && fresh(b));
+    const stale = Object.values(bots).filter(b => b.state && b.state !== "planned" && !fresh(b));
     const failed = active.filter(b => b.state === "failed");
     document.getElementById("crLive").textContent = active.length;
     document.getElementById("crProblems").textContent = failed.length;
     document.getElementById("crPlanned").textContent = Object.values(bots).filter(b => b.state === "planned").length;
     alertBox.textContent = failed.length
-      ? failed.length + " bot(s) have a failed last run. Inspect their GitHub logs."
-      : "No failed last run reported. Check individual bot details for pending work.";
+      ? failed.length + " bot(s) reported a recent failure. Inspect their GitHub logs."
+      : stale.length ? stale.length + " bot reports are older than 48 hours. Their current status is unknown, not confirmed healthy."
+      : "No recent failures reported. These are GitHub bot reports, not store analytics.";
     depts.replaceChildren();
     const included = new Set();
     for (const department of departments) {
