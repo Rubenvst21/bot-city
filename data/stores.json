@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "approval_required": [
+      "new_store_creation",
+      "paid_services",
+      "product_activation",
+      "public_video_publication",
+      "advertising",
+      "customer_messages",
+      "order_fulfilment",
+      "financial_transactions"
+    ],
+    "default_mode": "review_only",
+    "budget": "approval_before_spending",
+    "note": "This is a public read-only plan, not an enforcement service. Implement server-side approvals before enabling actions."
+  },
+  "stores": [
+    {
+      "id": "existing",
+      "name": "Existing Shopify Store",
+      "segment": "Personalised gifts and current products",
+      "connection": "verified_chat_only",
+      "operations_connection": "not_verified",
+      "status": "existing",
+      "notes": "Shopify connection available in ChatGPT; separate GitHub bot credentials have not been independently verified."
+    },
+    {
+      "id": "business",
+      "name": "Business & Financial Tools",
+      "segment": "Budgets, spreadsheets, calculators and business templates",
+      "connection": "not_connected",
+      "status": "planned"
+    },
+    {
+      "id": "useful",
+      "name": "Useful Products",
+      "segment": "Practical physical products and tools",
+      "connection": "not_connected",
+      "status": "planned"
+    },
+    {
+      "id": "pod",
+      "name": "Print-on-Demand",
+      "segment": "Personalised mugs, stationery and original designs",
+      "connection": "not_connected",
+      "status": "planned"
+    },
+    {
+      "id": "engineering",
+      "name": "Engineering & DIY",
+      "segment": "Original plans, kits and practical engineering products",
+      "connection": "not_connected",
+      "status": "planned"
+    }
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "title": "Control room and connection audit",
+      "status": "configured",
+      "scope": "Read-only stores, accurate bot plans and approvals"
+    },
+    {
+      "id": 2,
+      "title": "Draft product research and QA",
+      "status": "planned",
+      "scope": "Research, check suppliers, prepare unlisted drafts"
+    },
+    {
+      "id": 3,
+      "title": "Store integrations",
+      "status": "blocked",
+      "scope": "Connect each authorised store separately and test read-only first"
+    },
+    {
+      "id": 4,
+      "title": "Controlled operations",
+      "status": "planned",
+      "scope": "Add audited approval ledger before any external action"
+    }
+  ]
+}
