@@ -213,6 +213,16 @@
     .control-toggle { font-size: 11px; }
   }
 
+  /* Dashboard controls always win above animated 3D labels and remain tappable. */
+  #labels { z-index: 2; isolation: isolate; }
+  #controlRoom { z-index: 30; }
+  #crToggle { z-index: 40; touch-action: manipulation; pointer-events: auto; -webkit-tap-highlight-color: transparent; }
+  #controlRoom[hidden], body:not(.dashboard-open) #controlRoom {
+    display: none !important;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
 </style>
 </head>
 <body>
@@ -297,18 +307,24 @@
     { title: "Operations & Quality", bots: ["manager","quality"], note: "Approvals, QA and issue triage" },
     { title: "Finance & Research", bots: ["trading"], note: "Paper trading and analysis" }
   ];
-  toggle.addEventListener("click", () => {
-    panel.hidden = !panel.hidden;
-    document.body.classList.toggle("dashboard-open", !panel.hidden);
-    toggle.setAttribute("aria-expanded", String(!panel.hidden));
-    toggle.textContent = panel.hidden ? "☷ Show dashboard" : "× Hide dashboard";
+  // Single source of truth for dashboard visibility, including on mobile Safari.
+  function setDashboardOpen(open) {
+    panel.hidden = !open;
+    document.body.classList.toggle("dashboard-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Hide dashboard and explore the 3D city" : "Show dashboard");
+    toggle.textContent = open ? "× Hide dashboard" : "☷ Show dashboard";
+  }
+  toggle.addEventListener("click", () => setDashboardOpen(panel.hidden));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !panel.hidden) setDashboardOpen(false);
   });
-  document.addEventListener("keydown", event => { if (event.key === "Escape" && !panel.hidden) toggle.click(); });
-  // Default to the redesigned mission dashboard on every device.
-  // The 3D city is still available via the clear Explore/Hide controls.
-  panel.hidden = false;
-  document.body.classList.add("dashboard-open");
-  document.getElementById("crExploreCity").addEventListener("click", () => toggle.click());
+  // Dashboard first by default; a tap always reveals the unobstructed 3D city.
+  setDashboardOpen(true);
+  document.getElementById("crExploreCity").addEventListener("click", () => {
+    setDashboardOpen(false);
+    toggle.focus({ preventScroll: true });
+  });
   function node(tag, className, value) {
     const e = document.createElement(tag);
     if (className) e.className = className;
