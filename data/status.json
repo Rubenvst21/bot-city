@@ -183,6 +183,48 @@
       "color": "#b388ff",
       "description": "Handles sales, payments and shipping.",
       "state": "planned"
+    },
+    "supplier": {
+      "name": "Supplier Checker",
+      "emoji": "🧰",
+      "color": "#f7ba73",
+      "description": "Checks supplier reliability, availability and fulfilment claims before review.",
+      "state": "planned"
+    },
+    "catalog": {
+      "name": "Catalog Curator",
+      "emoji": "🛍️",
+      "color": "#6bdad3",
+      "description": "Prepares multi-store draft catalogues, no automatic publishing.",
+      "state": "planned"
+    },
+    "pricing": {
+      "name": "Pricing Analyst",
+      "emoji": "🧮",
+      "color": "#9fe47a",
+      "description": "Prepares cost and margin estimates, never changes live prices without approval.",
+      "state": "planned"
+    },
+    "engineering": {
+      "name": "Engineering & DIY Studio",
+      "emoji": "⚙️",
+      "color": "#8bb8ff",
+      "description": "Researches original DIY and engineering product concepts for manual safety review.",
+      "state": "planned"
+    },
+    "manager": {
+      "name": "Operations Manager",
+      "emoji": "🧭",
+      "color": "#ffbc73",
+      "description": "Coordinates queues and flags exceptions; no autonomous external actions.",
+      "state": "planned"
+    },
+    "quality": {
+      "name": "Quality Supervisor",
+      "emoji": "🛡️",
+      "color": "#d7a0ff",
+      "description": "Reviews product quality, accuracy and readiness before owner approval.",
+      "state": "planned"
     }
   }
 }
