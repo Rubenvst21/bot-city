@@ -225,6 +225,14 @@
       "color": "#d7a0ff",
       "description": "Reviews product quality, accuracy and readiness before owner approval.",
       "state": "planned"
+    },
+    "marketing": {
+      "name": "Marketing Studio",
+      "emoji": "📣",
+      "color": "#ff984c",
+      "description": "Prepares organic campaign copy and storyboards for owner review; no automatic posting, ads or purchases.",
+      "state": "planned",
+      "headline": "Manual offline campaign workflow committed; not yet executed"
     }
   }
 }
