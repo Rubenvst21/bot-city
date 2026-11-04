@@ -164,6 +164,9 @@
       <div class="cr-metric"><strong id="crPlanned">—</strong><span>Planned bots</span></div>
     </div>
     <div id="crAlert" class="cr-warning" style="margin-top:12px" role="status">Loading bot reports…</div>
+    <h3 class="cr-heading">Store network · review only</h3>
+    <div id="crStores" aria-live="polite"><p class="cr-empty">Loading store plans…</p></div>
+    <p class="cr-note" id="crStorePolicy">All new stores are proposals. Publishing, spending and customer-facing changes require owner approval.</p>
     <h3 class="cr-heading">Leadership structure</h3>
     <div class="cr-role"><span class="cr-emoji" aria-hidden="true">🏛️</span><span><b>Owner / Director</b><small>Approves publishing, spending and major decisions</small></span><span class="cr-planned">YOU</span></div>
     <div class="cr-role"><span class="cr-emoji" aria-hidden="true">🧭</span><span><b>Operations Manager</b><small>Coordinates teams and resolves routine issues</small></span><span class="cr-planned">PLANNED</span></div>
@@ -190,7 +193,9 @@
   const labels = { ok: "Last run succeeded", failed: "Last run failed", running: "Running", planned: "Planned", idle: "Not started" };
   const departments = [
     { title: "Creative Studio", bots: ["shorts"], note: "Videos, editing and content" },
-    { title: "Commerce & Store", bots: ["scout","builder","orders"], note: "Products, listings and fulfilment" },
+    { title: "Commerce & Stores", bots: ["scout","builder","orders","supplier","catalog","pricing"], note: "Product research, draft listings and supplier checks" },
+    { title: "Engineering & DIY", bots: ["engineering"], note: "Practical designs and safety review" },
+    { title: "Operations & Quality", bots: ["manager","quality"], note: "Approvals, QA and issue triage" },
     { title: "Finance & Research", bots: ["trading"], note: "Paper trading and analysis" }
   ];
   toggle.addEventListener("click", () => {
@@ -276,8 +281,29 @@
       if (!depts.children.length || depts.querySelector(".cr-empty")) depts.replaceChildren(node("p","cr-empty","Status temporarily unavailable"));
     }
   }
+  async function refreshStores() {
+    const target = document.getElementById("crStores");
+    try {
+      const response = await fetch("data/stores.json?t=" + Date.now(), { cache: "no-store" });
+      if (!response.ok) throw new Error("Store plan unavailable");
+      const data = await response.json();
+      target.replaceChildren();
+      for (const store of data.stores || []) {
+        const card = node("div", "cr-role");
+        const meta = node("span", "");
+        meta.append(node("b", "", store.name || "Unnamed store"));
+        meta.append(node("small", "", (store.segment || "") + " · " + (store.status === "existing" ? "Existing; bot connection unverified" : "Planned; not connected")));
+        card.append(node("span", "cr-emoji", store.status === "existing" ? "🏬" : "🏗️"), meta);
+        target.append(card);
+      }
+      if (!target.children.length) target.append(node("p", "cr-empty", "No stores configured"));
+    } catch {
+      target.replaceChildren(node("p", "cr-empty", "Store plans unavailable — connections not verified"));
+    }
+  }
   refresh();
-  setInterval(refresh, 120000);
+  refreshStores();
+  setInterval(() => { refresh(); refreshStores(); }, 120000);
 })();
 </script>
 
