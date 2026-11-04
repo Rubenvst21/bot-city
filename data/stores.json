@@ -64,8 +64,8 @@
     {
       "id": 2,
       "title": "Draft product research and QA",
-      "status": "planned",
-      "scope": "Research, check suppliers, prepare unlisted drafts"
+      "status": "offline_review_scaffold_committed_not_executed",
+      "scope": "Manual offline product readiness checker and tests committed to Bots; no automation activated, no live Shopify changes"
     },
     {
       "id": 3,
