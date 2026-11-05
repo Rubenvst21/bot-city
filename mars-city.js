@@ -392,7 +392,12 @@
   zoomMinus.addEventListener("click",()=>{if(state.level!=="city"){setLevel("city");}state.zoom=clamp(state.zoom*.8,.45,2.4);if(reducedMotion)render(performance.now());});
   back.addEventListener("click",()=>{if(state.level==="room")setLevel("district",state.zone);else setLevel("city");if(reducedMotion)render(performance.now());});
   document.getElementById("marsHome").addEventListener("click",()=>setLevel("city"));
-  classic.addEventListener("click",()=>{document.body.classList.remove("mars-mode");root.hidden=true;returnButton.hidden=false;});
+  classic.addEventListener("click",()=>{
+    document.body.classList.remove("mars-mode");root.hidden=true;returnButton.hidden=false;
+    // Classic view should open the interactive workfloor, even after visiting reports.
+    const reportPanel=document.getElementById("controlRoom");
+    if(reportPanel&&!reportPanel.hidden)document.getElementById("crToggle")?.click();
+  });
   returnButton.addEventListener("click",()=>{root.hidden=false;returnButton.hidden=true;document.body.classList.add("mars-mode");resize();if(reducedMotion)requestAnimationFrame(render);});
   document.getElementById("marsReports").addEventListener("click",()=>{
     classic.click();
