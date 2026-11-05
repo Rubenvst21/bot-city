@@ -514,6 +514,18 @@
 
 <script defer src="workfloor.js?v=2"></script>
 <script defer src="mars-city.js?v=1"></script>
-<script type="module" src="city.js"></script>
+<script type="module">
+  // Keep the old 3D tower city available without rendering it behind Mars Colony.
+  let legacy3dLoaded = false;
+  const loadLegacy3d = () => {
+    if (legacy3dLoaded) return;
+    legacy3dLoaded = true;
+    import("./city.js").catch(error => {
+      legacy3dLoaded = false;
+      console.error("Legacy 3D city could not load", error);
+    });
+  };
+  document.getElementById("marsClassic").addEventListener("click", loadLegacy3d);
+</script>
 </body>
 </html>
