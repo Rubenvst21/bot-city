@@ -11,7 +11,7 @@ try{
     const page=await context.newPage();
     const errors=[];
     page.on("pageerror",e=>errors.push(e.message));
-    await page.goto("http://127.0.0.1:8765/",{waitUntil:"networkidle"});
+    await page.goto("http://127.0.0.1:8765/?smoke=1",{waitUntil:"networkidle"});
     await page.waitForSelector("#marsCity:not([hidden])");
     await page.waitForFunction(()=>document.querySelectorAll("#marsDistricts button").length>=9,{timeout:20000});
     assert.equal(await page.locator("body.mars-mode").count(),1,"Mars colony is the default view");
@@ -22,8 +22,12 @@ try{
     const c=page.locator("#marsDistricts button").filter({hasText:"Creative Studio"}).first();
     await c.click();
     assert.match(await page.locator("#marsScreen").innerText(),/Creative Studio/);
+    await page.screenshot({path:"test-output/mars-district-"+vp.name+".png",fullPage:true});
     const rect=await page.locator("#marsCanvas").boundingBox();
-    await page.mouse.click(rect.x+rect.width*.5,rect.y+rect.height*.35);
+    const point={x:rect.x+rect.width*.5,y:rect.y+rect.height*.35};
+    const scene=await page.evaluate(p=>({node:document.elementFromPoint(p.x,p.y)?.id||document.elementFromPoint(p.x,p.y)?.className,debug:window.__marsDebug?.()}),point);
+    console.log("district hit",vp.name,JSON.stringify({point,scene}).slice(0,900));
+    await page.mouse.click(point.x,point.y);
     await page.waitForTimeout(100);
     assert.match(await page.locator("#marsScreen").innerText(),/Storyboard|Edit timeline|Private review/,"Tap on workstation opens its room");
     await page.locator("#marsBack").click();
