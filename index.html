@@ -12,6 +12,7 @@
 <meta property="og:url" content="https://rubenvst21.github.io/bot-city/">
 <meta property="og:image" content="https://rubenvst21.github.io/bot-city/preview.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="workfloor.css?v=2">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏙️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -223,6 +224,15 @@
     pointer-events: none;
   }
 
+  /* Miniature operations floor defaults to the user's new layout. */
+  .wf-explore {background:#10384c;color:#b1f7f7;border:1px solid #4ea9b8;border-radius:10px;padding:9px 10px;font:600 11px var(--body);cursor:pointer;white-space:nowrap}
+  .wf-explore:focus-visible {outline:2px solid #9ee5f0;outline-offset:2px}
+  .wf-intro .wf-actions {display:grid;justify-items:end;gap:6px}
+  @media(max-width:430px){.wf-intro{padding:11px 12px;gap:8px}.wf-explore{padding:7px;font-size:10px}.wf-intro p{font-size:10px}}
+  body.city-mode #workfloor,body.city-mode .wf-dock{display:none!important}
+  body.workfloor-open #workfloor,body.workfloor-open .wf-dock{visibility:visible}
+  body.workfloor-open #crToggle {right:11px;top:calc(env(safe-area-inset-top) + 8px)}
+  @media(max-width:759px){body.workfloor-open .hud{padding-right:148px}body.workfloor-open .hud h1{font-size:17px}body.workfloor-open .hud h1 span{font-size:9px!important}}
 </style>
 </head>
 <body>
@@ -286,6 +296,26 @@
     <p class="cr-note">The manager and supervisor are an organisational proposal, not working automations yet. Publishing and spending remain owner-approved.</p>
   </div>
 </aside>
+<main id="workfloor" aria-label="Bot City animated operations floor">
+  <div class="wf-intro">
+    <div>
+      <div class="wf-eyebrow">Business operations / live-status review</div>
+      <h2>Mini-Bot Operations Floor</h2>
+      <p>Watch small team robots at each department's workstation. Activity labels come from reported runs, not simulated sales.</p>
+    </div>
+    <div class="wf-actions"><div class="wf-counter"><strong id="wfCounter">Checking…</strong><small id="wfUpdated">Loading run reports</small></div>
+    <button class="wf-explore" id="wfExplore3D" type="button">Explore 3D City ↗</button></div>
+  </div>
+  <div class="wf-grid" id="wfGrid" aria-live="polite"><p class="cr-empty">Preparing department scenes…</p></div>
+  <p class="wf-note" id="wfNote">Visual worker animations illustrate roles; they don't imply that unfinished bots are operating.</p>
+</main>
+<nav class="wf-dock" aria-label="Bot City quick navigation">
+  <a id="wfHome" href="#workfloor" aria-current="page"><span aria-hidden="true">⌂</span>Mission</a>
+  <a href="https://studio.youtube.com/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span>Content</a>
+  <a href="https://9jj340-wi.myshopify.com/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🛒</span>Stores</a>
+  <a id="wfReports" href="#controlRoom"><span aria-hidden="true">▥</span>Reports</a>
+  <a href="https://github.com/Rubenvst21/Bots/actions" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⚙</span>Projects</a>
+</nav>
 
 <div id="labels"></div>
 <section id="sheet" aria-live="polite"></section>
@@ -307,24 +337,39 @@
     { title: "Operations & Quality", bots: ["manager","quality"], note: "Approvals, QA and issue triage" },
     { title: "Finance & Research", bots: ["trading"], note: "Paper trading and analysis" }
   ];
-  // Single source of truth for dashboard visibility, including on mobile Safari.
-  function setDashboardOpen(open) {
-    panel.hidden = !open;
-    document.body.classList.toggle("dashboard-open", open);
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Hide dashboard and explore the 3D city" : "Show dashboard");
-    toggle.textContent = open ? "× Hide dashboard" : "☷ Show dashboard";
+  // Three real views: the new workfloor, traditional dashboard, and interactive 3D city.
+  // Keep all layers mutually exclusive and the toggle synced for mobile Safari.
+  const floor = document.getElementById("workfloor");
+  const dock = document.querySelector(".wf-dock");
+  let viewMode = "floor";
+  function setViewMode(mode) {
+    if (!["floor","dashboard","city"].includes(mode)) return;
+    viewMode = mode;
+    const dashboard = mode === "dashboard", workfloor = mode === "floor";
+    panel.hidden = !dashboard;
+    floor.hidden = !workfloor;
+    dock.hidden = !workfloor;
+    document.body.classList.toggle("dashboard-open", dashboard);
+    document.body.classList.toggle("workfloor-open", workfloor);
+    document.body.classList.toggle("city-mode", mode === "city");
+    toggle.setAttribute("aria-expanded", String(dashboard));
+    toggle.setAttribute("aria-label", dashboard ? "Hide dashboard and return to Bot City workfloor" : "Show Mission Control dashboard");
+    toggle.textContent = dashboard ? "× Hide dashboard" : "☷ Show dashboard";
   }
-  toggle.addEventListener("click", () => setDashboardOpen(panel.hidden));
+  toggle.addEventListener("click", () => setViewMode(viewMode === "dashboard" ? "floor" : "dashboard"));
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && !panel.hidden) setDashboardOpen(false);
+    if (event.key === "Escape" && viewMode !== "floor") setViewMode("floor");
   });
-  // Dashboard first by default; a tap always reveals the unobstructed 3D city.
-  setDashboardOpen(true);
   document.getElementById("crExploreCity").addEventListener("click", () => {
-    setDashboardOpen(false);
+    setViewMode("city");
     toggle.focus({ preventScroll: true });
   });
+  document.getElementById("wfExplore3D").addEventListener("click", () => setViewMode("city"));
+  document.getElementById("wfReports").addEventListener("click", event => {
+    event.preventDefault();
+    setViewMode("dashboard");
+  });
+  setViewMode("floor");
   function node(tag, className, value) {
     const e = document.createElement(tag);
     if (className) e.className = className;
@@ -431,6 +476,7 @@
 })();
 </script>
 
+<script defer src="workfloor.js?v=2"></script>
 <script type="module" src="city.js"></script>
 </body>
 </html>
