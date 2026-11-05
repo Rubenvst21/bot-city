@@ -84,3 +84,21 @@ The default mobile-first page now displays five small illustrated department wor
 Current department badges are derived from data/status.json. A recently started run (under three hours) is displayed as running only if reported; last-success/failure is shown as recent only within 48 hours. Otherwise the department shows REPORT STALE or PLANNED. Tap **See bots** to inspect individual roles and GitHub Actions. **Show dashboard** opens the existing reports panel; **Explore 3D City** switches to the original tower city; both views can return to the workfloor.
 
 Files: workfloor.css and workfloor.js, wired through index.html. No store credentials, paid services, analytics assumptions, or automated publishing were added. The source was inspected and checked, but mobile Safari and live GitHub Pages deployment should be tested separately.
+
+## Bot City v2 — Mars Colony (5 November 2026)
+
+The public home page now opens a **Mars-colony city map** instead of a static dashboard. It uses lightweight Canvas 2.5D illustrations that work on phones without loading the older WebGL 3D engine in the background.
+
+- Start with the colony overview: see separate land plots, a central HQ, roads, dome buildings, miniature bots and vacant planned foundations.
+- Tap a plot or a named district button to enter the department. Tap a room or use the accessible workroom buttons to inspect a full-size worker station; Back and Colony return to the overview.
+- Move across the colony with touch drag; pinch or use +/− for zoom. Desktop mouse drag and scroll-wheel zoom also work.
+- **Reports** opens the classic read-only workflow-status dashboard; **Classic view** opens the previous animated operations floor and lazily loads the legacy WebGL tower city. **Return to Mars City** switches back.
+- New store records in \`data/stores.json\`, project records in \`data/colony.json\`, or previously unmapped bots in \`data/status.json\` create additional plotted locations. The city therefore grows as configuration and approved projects are expanded, not merely as a cosmetic animation.
+- Five core departments are currently configured: Creative Studio, Commerce & Stores, Operations & Quality, Finance & Research, and Engineering & DIY. Four proposed stores plus two project plots are also mapped.
+- Activity and status labels are based on published bot reports. A missing, stale or planned bot is NOT marked live. Mini-bot walking/work motions are illustrative, not a verified feed of autonomous work.
+
+**Implementation:** \`mars-city.js\`, \`mars-city.css\`, \`data/colony.json\` and the updated \`index.html\`. The older \`workfloor.js\`, \`workfloor.css\` and \`city.js\` are retained.
+
+**Verification:** GitHub Pages deployment and a browser-smoke workflow validate mobile/desktop layouts, zoom navigation, department and workroom entry, Reports, Classic view and return. See \`.github/workflows/mars-smoke.yml\` and \`tests/mars-smoke.mjs\`. Browser automation does not replace a final personal-device review.
+
+**Safety:** All rendered animations and labels are read-only. No store is created, no products are published, no payment credentials are touched, and no paid services are started by the city visualization. Future real-time bot activity will require authenticated status publishing and operational QA before it should be described as live.
