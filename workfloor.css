@@ -4,6 +4,7 @@
   padding:0 3px 18px; max-width:1150px; margin-inline:auto; overscroll-behavior:contain;
   scrollbar-color:#315b73 transparent; -webkit-overflow-scrolling:touch; }
 #workfloor[hidden] { display:none!important; }
+.wf-dock[hidden] { display:none!important; }
 .wf-intro { display:flex; gap:12px; align-items:end; justify-content:space-between;
   border:1px solid var(--wf-border); border-radius:19px; padding:15px 17px; margin-bottom:11px;
   background:linear-gradient(127deg,rgba(17,50,71,.96),rgba(13,35,64,.94)); box-shadow:0 14px 40px #0007; }
@@ -65,7 +66,7 @@
 .wf-arm.left{left:11px;transform:rotate(24deg)}.wf-arm.right{right:10px;transform:rotate(-36deg)}
 .wf-foot{position:absolute;bottom:12px;width:12px;height:15px;border-radius:4px;background:#81a9bf}
 .wf-foot.left{left:21px}.wf-foot.right{right:12px}
-.wf-secondary{position:absolute;left:37%;bottom:25px;transform:scale(.65);transform-origin:bottom left;opacity:.9;}
+.wf-secondary{position:absolute;left:37%;bottom:25px;transform:scale(.65);transform-origin:bottom left;opacity:.9;animation:none!important;}
 .wf-secondary .wf-core{background:#96a8d0}
 .wf-robot[data-motion='demo']{animation:wf-work 3.6s ease-in-out infinite;}
 .wf-robot[data-motion='running']{animation:wf-work 1.8s ease-in-out infinite;}
