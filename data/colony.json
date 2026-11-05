@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "notice": "These are project plots for visual navigation. They do not assert project automation, store connections or revenue.",
+  "projects": [
+    {
+      "id": "money-files",
+      "name": "The Money Files",
+      "department": "creative",
+      "status": "in_progress",
+      "color": "#b18cf2",
+      "tag": "Animated educational video production",
+      "bots": [
+        "shorts"
+      ],
+      "tasks": [
+        "Research room",
+        "Animation studio",
+        "Private reviews"
+      ]
+    },
+    {
+      "id": "store-growth",
+      "name": "Store Growth",
+      "department": "commerce",
+      "status": "planned",
+      "color": "#e4aa64",
+      "tag": "Product tests and sales improvement",
+      "bots": [
+        "scout"
+      ],
+      "tasks": [
+        "Product research",
+        "Store testing",
+        "Campaign review"
+      ]
+    }
+  ]
+}
