@@ -234,6 +234,7 @@
   body.workfloor-open #crToggle {right:11px;top:calc(env(safe-area-inset-top) + 8px)}
   @media(max-width:759px){body.workfloor-open .hud{padding-right:148px}body.workfloor-open .hud h1{font-size:17px}body.workfloor-open .hud h1 span{font-size:9px!important}}
 </style>
+<link rel="stylesheet" href="mars-city.css?v=1">
 </head>
 <body>
 <canvas id="scene" aria-label="3D city where each tower is a bot"></canvas>
@@ -316,6 +317,41 @@
   <a id="wfReports" href="#controlRoom"><span aria-hidden="true">▥</span>Reports</a>
   <a href="https://github.com/Rubenvst21/Bots/actions" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⚙</span>Projects</a>
 </nav>
+
+<section id="marsCity" aria-label="Bot City Mars colony world" hidden>
+  <header class="mars-bar">
+    <div class="mars-brand">
+      <span class="mars-logo" aria-hidden="true">∞</span>
+      <div><div class="mars-kicker">Planet Mars / Sector 01</div><h1>BOT CITY <span>/ COLONY</span></h1></div>
+    </div>
+    <button class="mars-btn" id="marsClassic" type="button">Classic view</button>
+  </header>
+  <div class="mars-stage">
+    <canvas id="marsCanvas" aria-label="Interactive 2.5D Mars colony showing department plots and future store foundations. Use department buttons below to navigate." role="img"></canvas>
+    <div class="mars-top" aria-live="polite">
+      <span class="label">Mission Control / Visual Map</span>
+      <strong id="marsSummary">Preparing the colony…</strong>
+      <small id="marsReportAge">Reading run statuses…</small>
+    </div>
+    <div class="mars-zoom" aria-label="Map zoom controls">
+      <button class="mars-btn" id="marsZoomIn" type="button" aria-label="Zoom in">+</button>
+      <button class="mars-btn" id="marsZoomOut" type="button" aria-label="Zoom out">−</button>
+    </div>
+    <div class="mars-bottom">
+      <div class="mars-heading">
+        <div><span id="marsBreadcrumb">Mars Colony</span><strong id="marsScreen">Colony overview</strong></div>
+        <div class="mars-actions">
+          <button class="mars-btn" id="marsHome" type="button">⌂ Colony</button>
+          <button class="mars-btn" id="marsBack" type="button" disabled>← Back</button>
+          <button class="mars-btn" id="marsReports" type="button">Reports</button>
+        </div>
+      </div>
+      <p id="marsDetail">Tap a plot to enter a department. More plots appear as store profiles expand.</p>
+      <nav id="marsDistricts" aria-label="Enter a department or store district"></nav>
+    </div>
+  </div>
+</section>
+<button id="marsReturn" class="mars-btn" type="button" hidden>↗ Return to Mars City</button>
 
 <div id="labels"></div>
 <section id="sheet" aria-live="polite"></section>
@@ -477,6 +513,7 @@
 </script>
 
 <script defer src="workfloor.js?v=2"></script>
+<script defer src="mars-city.js?v=1"></script>
 <script type="module" src="city.js"></script>
 </body>
 </html>
