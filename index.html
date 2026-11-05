@@ -390,7 +390,7 @@
     dot.setAttribute("aria-hidden", "true");
     const meta = node("div", "cr-bot-meta");
     meta.append(node("span", "cr-bot-name", (bot.emoji || "🤖") + " " + (bot.name || id)));
-    meta.append(node("small", "", staleReport ? "Stale report — current status unknown" : (labels[bot.state] || "Status unknown"));
+    meta.append(node("small", "", staleReport ? "Stale report — current status unknown" : (labels[bot.state] || "Status unknown")));
     row.append(dot, meta);
     const url = safeRunLink(bot.run_url);
     if (url) {
