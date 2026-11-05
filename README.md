@@ -76,3 +76,11 @@ Nothing on the floor can publish videos, change Shopify products, spend credits 
 - `workfloor.js`: builds scenes, binds status and details, refreshes every two minutes.
 - `workfloor.css`: draws responsive mini-bots, simple workstations, states, and safe mobile navigation.
 - `city.js` and `src/city.js`: unchanged. The 3D view remains separately available.
+
+## Mini-bot operations floor (5 November 2026)
+
+The default mobile-first page now displays five small illustrated department workstations: Creative Studio, Commerce & Stores, Operations & Quality, Finance & Research, and Engineering & DIY. CSS-based robots use lightweight loops to illustrate department tasks. **They are NOT independent bots and animation alone never confirms that a bot is operating.**
+
+Current department badges are derived from data/status.json. A recently started run (under three hours) is displayed as running only if reported; last-success/failure is shown as recent only within 48 hours. Otherwise the department shows REPORT STALE or PLANNED. Tap **See bots** to inspect individual roles and GitHub Actions. **Show dashboard** opens the existing reports panel; **Explore 3D City** switches to the original tower city; both views can return to the workfloor.
+
+Files: workfloor.css and workfloor.js, wired through index.html. No store credentials, paid services, analytics assumptions, or automated publishing were added. The source was inspected and checked, but mobile Safari and live GitHub Pages deployment should be tested separately.
