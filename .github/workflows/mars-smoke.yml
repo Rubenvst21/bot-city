@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - .github/workflows/mars-smoke.yml
+      - mars-city.js
+      - mars-city.css
+      - index.html
+      - data/colony.json
+      - tests/mars-smoke.mjs
   workflow_dispatch:
 
 permissions:
