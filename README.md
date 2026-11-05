@@ -51,3 +51,28 @@ active automations until separately implemented, connected and tested.
 
 The control room displays its own status fetch error message if data cannot load.
 The original tower selection and GitHub run links remain in place.
+
+## Animated Mini-Bot Operations Floor (Nov 2026)
+
+The site now opens on a **responsive operations floor** showing small animated workers in five departments: Creative Studio, Commerce & Stores, Operations & Quality, Finance & Research, and Engineering & DIY. It is built with lightweight CSS+JavaScript in `workfloor.css` and `workfloor.js`, and leaves the existing 3D city bundle untouched.
+
+### Navigation
+
+- **Mission:** Mini-bot operations floor, grouped by department.
+- **Show dashboard / Hide dashboard:** Opens/closes the existing detailed Mission Control control room.
+- **Explore 3D City:** Hides the floor and dashboard and reveals the original interactive 3D buildings.
+- **Reports:** Opens the detailed dashboard. **Content**, **Stores**, and **Projects** are direct links to the user's existing services, not simulated controls.
+- **See bots:** Expands each department's exact bot list and reported state; links to verified GitHub Actions runs.
+
+### Activity accuracy
+
+The mini-bots are **illustrations of work**, not evidence that automation is running. A department is marked **RUNNING NOW** only when a bot reports `running` with a `started` time less than 3 hours old; **RECENT RUN** only when a bot reports `ok` within 48 hours; otherwise **REPORT STALE** or **PLANNED**. A recent failed run is marked **NEEDS REVIEW**. The source is the same public `data/status.json`, which may itself be old or unavailable. Display errors explicitly instead of fabricating activity or sales.
+
+Nothing on the floor can publish videos, change Shopify products, spend credits or create orders. Motion is disabled for users who prefer reduced motion.
+
+### Source changes
+
+- `index.html`: adds the new floor and navigation while preserving the old dashboard and 3D scene.
+- `workfloor.js`: builds scenes, binds status and details, refreshes every two minutes.
+- `workfloor.css`: draws responsive mini-bots, simple workstations, states, and safe mobile navigation.
+- `city.js` and `src/city.js`: unchanged. The 3D view remains separately available.
