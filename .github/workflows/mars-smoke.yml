@@ -1,0 +1,43 @@
+name: Mars Colony Browser Smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/mars-smoke.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify JavaScript syntax
+        run: |
+          node --check mars-city.js
+          node --check workfloor.js
+          node --check tests/mars-smoke.mjs
+      - name: Install browser test dependency
+        run: npm install --no-save --no-package-lock playwright
+      - name: Install Chromium for tests
+        run: npx playwright install --with-deps chromium
+      - name: Serve Bot City and test mobile + desktop
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/mars-ci-server.log 2>&1 &
+          sleep 3
+          node tests/mars-smoke.mjs
+      - name: Save actual browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mars-colony-mobile-desktop
+          path: test-output/
+          if-no-files-found: warn
+          retention-days: 7
