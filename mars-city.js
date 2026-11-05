@@ -279,6 +279,8 @@
       summary.textContent=z.name+" · "+st.label;
     }else summary.textContent=allPlots().length+" mapped plots · expands as configured stores are added";
     if(nav)for (const b of nav.querySelectorAll("button[data-zone]"))b.setAttribute("aria-current",z&&b.dataset.zone===z.id?"location":"false");
+    // Reduced-motion users still need an immediate redraw after every navigation.
+    if(reducedMotion)requestAnimationFrame(render);
   }
   function renderNav(){
     nav.replaceChildren();
@@ -372,7 +374,7 @@
   back.addEventListener("click",()=>{if(state.level==="room")setLevel("district",state.zone);else setLevel("city");if(reducedMotion)render(performance.now());});
   document.getElementById("marsHome").addEventListener("click",()=>setLevel("city"));
   classic.addEventListener("click",()=>{document.body.classList.remove("mars-mode");root.hidden=true;returnButton.hidden=false;});
-  returnButton.addEventListener("click",()=>{root.hidden=false;returnButton.hidden=true;document.body.classList.add("mars-mode");resize();});
+  returnButton.addEventListener("click",()=>{root.hidden=false;returnButton.hidden=true;document.body.classList.add("mars-mode");resize();if(reducedMotion)requestAnimationFrame(render);});
   document.getElementById("marsReports").addEventListener("click",()=>{
     classic.click();
     const reports=document.getElementById("wfReports");
