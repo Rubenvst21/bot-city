@@ -1,0 +1,79 @@
+/* Bot City v2: an expandable 2.5D Martian colony, deliberately separate from the classic dashboard.
+   Keep all interactive controls in HTML and use Canvas only as an accessible visual map. */
+#marsCity { position: fixed; inset: 0; display:flex; flex-direction:column; isolation:isolate; z-index:18;
+  background:#0b1829; color:#eef9fd; font-family:Inter,system-ui,sans-serif; overflow:hidden; }
+#marsCity[hidden], #marsReturn[hidden] { display:none!important; }
+body.mars-mode .hud, body.mars-mode #workfloor, body.mars-mode .wf-dock,
+body.mars-mode #crToggle, body.mars-mode #controlRoom, body.mars-mode #labels,
+body.mars-mode #sheet, body.mars-mode .ticker { display:none!important; }
+.mars-bar {display:flex; justify-content:space-between; gap:10px; align-items:center;
+  padding:calc(env(safe-area-inset-top) + 12px) 15px 11px;
+  border-bottom:1px solid rgba(137,211,225,.23);
+  background:linear-gradient(108deg,#0a2035,#122b3a 65%,#283044); z-index:2; flex:none;}
+.mars-brand {display:flex;gap:10px;align-items:center;min-width:0;}
+.mars-logo {display:grid;place-items:center;width:37px;height:37px;flex:none;border-radius:12px;
+  background:linear-gradient(135deg,#57e4ea,#22799d);color:#052539;font-size:25px;font-weight:800;
+  box-shadow:0 2px 20px rgba(74,224,224,.18);}
+.mars-kicker {text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#83e9e6;font-size:10px}
+.mars-brand h1 {font-size:clamp(17px,3.2vw,23px);margin:2px 0 0;letter-spacing:.035em;color:#f8fbff;white-space:nowrap;}
+.mars-brand h1 span {color:#e7bc87}
+.mars-btn{font-family:Inter,system-ui,sans-serif;font-weight:700;font-size:11px;color:#c4f3f2;
+  background:rgba(17,60,79,.96);border:1px solid #438da7;border-radius:11px;
+  min-height:39px;padding:8px 11px;cursor:pointer;white-space:nowrap;}
+.mars-btn:focus-visible,#marsDistricts button:focus-visible{outline:3px solid #f1d39d;outline-offset:2px;}
+.mars-btn:disabled {opacity:.42;cursor:default}
+.mars-btn:hover:not(:disabled) {background:#216076;}
+.mars-stage {position:relative;flex:1;min-height:0;overflow:hidden;background:#152236;}
+#marsCanvas {width:100%;height:100%;display:block;touch-action:none;cursor:grab;user-select:none;}
+#marsCanvas:active{cursor:grabbing}
+.mars-top {position:absolute;top:12px;left:12px;max-width:min(75vw,285px);
+  display:grid;gap:4px;border:1px solid #446c77;background:rgba(10,36,53,.79);
+  box-shadow:0 8px 28px rgba(0,0,0,.2);border-radius:15px; padding:12px 14px;pointer-events:none;
+  backdrop-filter:blur(9px);}
+.mars-top .label {position:static;transform:none;box-shadow:none;max-width:none;min-width:0;
+  display:block;padding:0;background:none;border:0;pointer-events:none;font-size:10px;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;color:#a4e1dd;white-space:normal;}
+#marsSummary{font-size:clamp(13px,2.5vw,18px);font-weight:800;line-height:1.2;}
+#marsReportAge {font-size:10px;color:#aecbd3}
+.mars-zoom {position:absolute;top:12px;right:12px;display:grid;gap:7px;}
+.mars-zoom .mars-btn{width:43px;height:43px;padding:0;display:grid;place-items:center;font-size:23px;
+  background:rgba(7,29,48,.88);border-color:#5c8799;}
+.mars-bottom {position:absolute;left:10px;right:10px;bottom:calc(env(safe-area-inset-bottom) + 11px);
+  background:linear-gradient(150deg,rgba(11,31,49,.96),rgba(15,39,60,.94));
+  border:1px solid rgba(116,192,211,.49);border-radius:18px;
+  padding:12px;box-shadow:0 12px 52px rgba(0,0,0,.47);backdrop-filter:blur(15px);
+  display:grid;gap:8px;max-width:900px;margin-inline:auto;}
+.mars-heading {display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.mars-heading strong {display:block;font-family:Rajdhani,Inter,sans-serif;font-size:clamp(19px,3vw,26px);line-height:1.1;color:white;}
+#marsBreadcrumb {font-size:10px;color:#89e0e3;letter-spacing:.03em;display:block;margin-bottom:2px;}
+#marsDetail{font-size:11px;color:#c5d6e3;line-height:1.4;margin:0;max-width:760px;}
+.mars-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+#marsDistricts{display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#426d7b transparent;
+  padding-bottom:2px;-webkit-overflow-scrolling:touch}
+#marsDistricts button {display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font-size:10px;
+  font-weight:600;border:1px solid #476d83;border-radius:10px;background:#18374d;color:#c6e3ee;
+  padding:9px 10px;min-height:36px;cursor:pointer}
+#marsDistricts button[aria-current='location'] {border-color:#8ef1ec;color:#d8fffb;background:#17596b;}
+#marsDistricts button:hover{background:#205371}
+#marsReturn {position:fixed;z-index:100;bottom:calc(12px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  box-shadow:0 9px 35px #000a;border-radius:16px;min-height:48px;font-size:13px;white-space:nowrap;}
+@media (max-width:620px) {
+ .mars-bar {padding-inline:10px}
+ .mars-logo {width:32px;height:32px;font-size:21px}
+ .mars-brand h1 {font-size:17px}
+ .mars-kicker {font-size:9px}
+ .mars-top {top:9px;left:8px;padding:10px;max-width:calc(100vw - 75px)}
+ .mars-zoom {top:9px;right:8px}
+ .mars-bottom {left:7px;right:7px;bottom:calc(env(safe-area-inset-bottom) + 6px);padding:9px 9px 10px;gap:6px;}
+ .mars-heading strong{font-size:19px}
+ .mars-actions .mars-btn{min-height:32px;padding:6px 8px;font-size:10px}
+ .mars-heading{align-items:start;gap:6px}
+ #marsDetail{font-size:10px}
+}
+@media (max-width:355px) {
+ .mars-btn {padding:7px 8px;font-size:10px}
+ .mars-brand h1{font-size:14px}
+ .mars-kicker{font-size:8px}
+ #marsDistricts button {padding:7px 8px}
+}
+@media (prefers-reduced-motion:reduce) { #marsCanvas {cursor:default} }
