@@ -420,7 +420,7 @@
     state.panX=0;state.panY=0;
   }
   function setLevel(level,z=null,room=null){
-    state.level=level;state.zone=z;state.room=room;state.panX=0;state.panY=0;
+    state.level=level;state.zone=z;state.room=room;state.panX=0;state.panY=0;root.dataset.level=level;
     if(level==="city")fit();
     else state.zoom=1;
     const t=level==="city"?"Colony overview":level==="district"?z.name:z.tasks[room];
