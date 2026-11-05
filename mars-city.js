@@ -164,10 +164,12 @@
       text(badge,cx,labelY+21,9,st.mode==="running"?"#6bf0c6":st.mode==="failed"?"#ffb4ba":"#c3d8e3");
     }else{
       // A subtle district marker reads better at small zoom levels.
-      const shortName=z.kind==="store"?"STORE":z.kind==="project"?"PROJECT":z.id.toUpperCase().slice(0,7);
-      const markerW=clamp(shortName.length*5+15,35,66);
-      rrect(cx-markerW/2,labelY-8,markerW,17,8,"rgba(9,27,44,.82)",alpha(z.color,.48));
-      text(shortName,cx,labelY,8,"#d6e7f0");
+      if(z.kind!=="store"&&z.kind!=="project"){
+        const shortName=z.id.toUpperCase().slice(0,7);
+        const markerW=clamp(shortName.length*5+15,35,66);
+        rrect(cx-markerW/2,labelY-8,markerW,17,8,"rgba(9,27,44,.82)",alpha(z.color,.48));
+        text(shortName,cx,labelY,8,"#d6e7f0");
+      }
     }
     state.tiles.push({id:z.id,x:cx,y:cy,w:Math.max(80,w),h:90*s});
   }
@@ -224,9 +226,10 @@
     ground(t);
     const z=state.zone,st=zoneStatus(z);
     const w=state.width,h=state.height;
-    const inset=clamp(w*.06,14,54),top=clamp(h*.11,68,110);
+    const mobile=w<610;
+    const inset=clamp(w*.06,14,54),top=mobile?clamp(h*.07,48,73):clamp(h*.11,68,110);
     // Big floor plate: one distinct plot/apartment.
-    const floorX=inset,floorY=top,floorW=w-inset*2,floorH=h-top-60;
+    const floorX=inset,floorY=top,floorW=w-inset*2,floorH=h-top-(mobile?177:60);
     ctx.save();ctx.shadowColor=alpha(z.color,.24);ctx.shadowBlur=28;
     roundedPanel(floorX,floorY,floorW,floorH,"rgba(11,32,50,.95)",alpha(z.color,.68),22);
     ctx.restore();
@@ -234,17 +237,17 @@
     text(z.icon+" "+z.name,w/2,floorY+44,clamp(16+w*.015,17,24),"#fff","center","800");
     text(st.label,w/2,floorY+73,11,st.mode==="planned"?"#b4cafa":"#b6f0e9");
     const gridW=floorW-28,gap=9,cols=w<610?1:3;
-    const usableH=floorH-139;
-    const cardH=cols===1?clamp((usableH-20)/3,112,220):clamp(usableH*.77,166,300);
+    const usableH=floorH-(mobile?115:139);
+    const cardH=cols===1?clamp((usableH-18)/3,82,195):clamp(usableH*.77,166,300);
     const cardW=cols===1?gridW:(gridW-gap*(cols-1))/cols;
     state.tiles=[];
     z.tasks.forEach((task,i)=>{
       const x=floorX+14+(i%cols)*(cardW+gap);
-      const y=floorY+107+Math.floor(i/cols)*(cardH+gap);
+      const y=floorY+(mobile?95:107)+Math.floor(i/cols)*(cardH+gap);
       renderStation(x,y,cardW,cardH,task,i,z.color,st.mode,t);
       state.tiles.push({id:"room-"+i,x:x+cardW*.5,y:y+cardH*.5,w:cardW,h:cardH,top:y,left:x});
     });
-    text(st.mode==="planned"?"Blueprint stage — no live automation verified":"Illustrative workers • actual bot status from GitHub",w/2,Math.min(h-40,floorY+floorH-19),10,"#b8cfdd");
+    if(!mobile)text(st.mode==="planned"?"Blueprint stage — no live automation verified":"Illustrative workers • actual bot status from GitHub",w/2,Math.min(h-40,floorY+floorH-19),10,"#b8cfdd");
   }
   function roomView(t){
     ground(t);
@@ -270,7 +273,7 @@
   function fit(){
     const width=state.width,height=state.height;
     const count=allPlots().length;
-    state.zoom=clamp(count>8?Math.min(1.05,width/450):Math.min(1.16,width/405),.53,1.45);
+    state.zoom=clamp(count>8?Math.min(1.2,width/385):Math.min(1.16,width/405),.53,1.45);
     state.panX=0;state.panY=0;
   }
   function setLevel(level,z=null,room=null){
