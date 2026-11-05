@@ -20,7 +20,7 @@
     {id:"finance",name:"Finance & Research",icon:"📈",tag:"INSIGHTS & COSTS",color:"#80e3ae",pos:[-2.2,2.6],bots:["trading"],tasks:["Costs & margins","Analytics","Paper trading"]},
     {id:"engineering",name:"Engineering & DIY",icon:"⚙️",tag:"PROTOTYPES & DESIGN",color:"#8eaefe",pos:[2.5,2.5],bots:["engineering"],tasks:["CAD plans","Prototype lab","Inspection bay"]}
   ];
-  let stores=[],bots={},reportTimestamp=0;
+  let stores=[],projects=[],bots={},reportTimestamp=0;
   const state={level:"city",zone:null,room:null,panX:0,panY:0,zoom:1,drag:null,lastX:0,lastY:0,tiles:[],width:0,height:0,dpr:1,start:performance.now()};
   const statusText={running:"RUNNING NOW",recent:"RECENT RUN",stale:"REPORT STALE",failed:"NEEDS REVIEW",planned:"PLANNED"};
   const rgb=(hex)=>{const h=hex.replace("#","");return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];};
@@ -31,6 +31,7 @@
   const freshRunning=raw=>{const d=Date.parse(raw||"");return Number.isFinite(d)&&d<=Date.now()&&Date.now()-d<3*3600*1000;};
   function zoneStatus(zone) {
     if(zone.kind==="store")return {mode:"planned",label:"FUTURE STORE"};
+    if(zone.kind==="project"&&zone.projectStatus==="planned")return {mode:"planned",label:"PROJECT PLANNED"};
     const bb=zone.bots.map(id=>bots[id]).filter(Boolean);
     const actual=bb.filter(b=>b.state!=="planned");
     if(!actual.length)return {mode:"planned",label:"PLANNED"};
@@ -45,7 +46,22 @@
       const radius=Math.floor(i/6);
       return {id:"store-"+s.id,name:s.name,icon:"🛒",tag:s.segment||"FUTURE STORE",color:"#7e93c4",kind:"store",pos:[slot[0]+radius*1.5,slot[1]+radius*1.2],bots:[],tasks:["Connect store","Review products","Launch after approval"]};
     });
-    return zones.concat(next);
+    const extras=projects.map((project,i)=>{
+      const slot=[[-3.6,-4.2],[3.7,-4.2],[-5.8,3.5],[5.8,3.5],[0,-6.6]][i%5];
+      const ring=Math.floor(i/5);
+      const color=project.color&&/^#[0-9a-f]{6}$/i.test(project.color)?project.color:"#7e93c4";
+      return {id:"project-"+project.id,name:project.name,kind:"project",projectStatus:project.status,
+        icon:"🧩",tag:project.tag||"PROJECT",color,
+        pos:[slot[0]+ring*2.5,slot[1]-ring*2],bots:project.bots||[],
+        tasks:Array.isArray(project.tasks)&&project.tasks.length>=3?project.tasks.slice(0,3):["Project plan","Workstation","Review gate"]};
+    });
+    const covered=new Set(zones.concat(extras).flatMap(z=>z.bots||[]));
+    const newBots=Object.entries(bots).filter(([id])=>!covered.has(id)).map(([id,bot],i)=>({
+      id:"extra-"+id,name:bot.name||id,icon:"🤖",tag:"NEW BOT PLOT",
+      color:/^#[0-9a-f]{6}$/i.test(bot.color||"")?bot.color:"#91b5ed",
+      pos:[6.8*Math.cos(i*1.4),6.8*Math.sin(i*1.4)],bots:[id],tasks:["Bot console","Activity review","Quality gate"]
+    }));
+    return zones.concat(next,extras,newBots);
   }
   function resize(){
     const rect=canvas.getBoundingClientRect();
@@ -291,25 +307,61 @@
     }
   };
   const pos=e=>{const rect=canvas.getBoundingClientRect();return{x:e.clientX-rect.left,y:e.clientY-rect.top};};
+  const pointerPositions=new Map();
+  let pinchDistance=0,pinchCenter=null,ignoreClick=false;
+  function redrawIfStatic(){if(reducedMotion)render(performance.now());}
   canvas.addEventListener("pointerdown",e=>{
-    if(e.button!==0)return;const p=pos(e);
-    state.drag={x:p.x,y:p.y,last:p,at:performance.now(),moved:false};
-    if(state.level==="city")canvas.setPointerCapture(e.pointerId);
+    if(e.button!==0)return;
+    const p=pos(e);
+    pointerPositions.set(e.pointerId,p);
+    try{canvas.setPointerCapture(e.pointerId);}catch(_){}
+    if(pointerPositions.size===1){
+      state.drag={x:p.x,y:p.y,last:p,at:performance.now(),moved:false};
+      pinchDistance=0;pinchCenter=null;ignoreClick=false;
+    } else if(pointerPositions.size===2) {
+      const ps=[...pointerPositions.values()];
+      pinchDistance=Math.hypot(ps[1].x-ps[0].x,ps[1].y-ps[0].y);
+      pinchCenter={x:(ps[0].x+ps[1].x)/2,y:(ps[0].y+ps[1].y)/2};
+      ignoreClick=true;
+    }
   });
   canvas.addEventListener("pointermove",e=>{
-    if(!state.drag||state.level!=="city")return;
-    const p=pos(e),dx=p.x-state.drag.last.x,dy=p.y-state.drag.last.y;
-    if(Math.abs(p.x-state.drag.x)+Math.abs(p.y-state.drag.y)>8)state.drag.moved=true;
-    state.panX+=dx;state.panY+=dy;state.drag.last=p;
-    if(reducedMotion)render(performance.now());
+    if(!pointerPositions.has(e.pointerId))return;
+    const p=pos(e);
+    pointerPositions.set(e.pointerId,p);
+    if(state.level!=="city")return;
+    if(pointerPositions.size===2){
+      const ps=[...pointerPositions.values()];
+      const dist=Math.hypot(ps[1].x-ps[0].x,ps[1].y-ps[0].y);
+      const center={x:(ps[0].x+ps[1].x)/2,y:(ps[0].y+ps[1].y)/2};
+      if(pinchDistance>5)state.zoom=clamp(state.zoom*dist/pinchDistance,.45,2.4);
+      if(pinchCenter){state.panX+=center.x-pinchCenter.x;state.panY+=center.y-pinchCenter.y;}
+      pinchDistance=dist;pinchCenter=center;
+      if(state.drag)state.drag.moved=true;
+      ignoreClick=true;redrawIfStatic();
+    }else if(pointerPositions.size===1&&state.drag){
+      const dx=p.x-state.drag.last.x,dy=p.y-state.drag.last.y;
+      if(Math.hypot(p.x-state.drag.x,p.y-state.drag.y)>8)state.drag.moved=true;
+      state.panX+=dx;state.panY+=dy;
+      state.drag.last=p;
+      redrawIfStatic();
+    }
   });
-  canvas.addEventListener("pointerup",e=>{
-    if(!state.drag)return;const p=pos(e);
-    if(!state.drag.moved)clickHit(p.x,p.y);
-    state.drag=null;
-    if(reducedMotion)render(performance.now());
-  });
-  canvas.addEventListener("pointercancel",()=>{state.drag=null;});
+  function finishPointer(e,wasCancelled=false){
+    const p=pos(e);
+    const click=state.drag&&!state.drag.moved&&!ignoreClick&&!wasCancelled&&pointerPositions.size===1;
+    pointerPositions.delete(e.pointerId);
+    if(click)clickHit(p.x,p.y);
+    if(pointerPositions.size===0){state.drag=null;pinchDistance=0;pinchCenter=null;ignoreClick=false;}
+    else if(pointerPositions.size===1){
+      const next=[...pointerPositions.values()][0];
+      state.drag={x:next.x,y:next.y,last:next,moved:true};
+      pinchDistance=0;pinchCenter=null;ignoreClick=true;
+    }
+    redrawIfStatic();
+  }
+  canvas.addEventListener("pointerup",e=>finishPointer(e));
+  canvas.addEventListener("pointercancel",e=>finishPointer(e,true));
   canvas.addEventListener("wheel",e=>{
     if(state.level!=="city")return;e.preventDefault();
     state.zoom=clamp(state.zoom*(e.deltaY<0?1.12:.88),.45,2.4);
@@ -321,13 +373,20 @@
   document.getElementById("marsHome").addEventListener("click",()=>setLevel("city"));
   classic.addEventListener("click",()=>{document.body.classList.remove("mars-mode");root.hidden=true;returnButton.hidden=false;});
   returnButton.addEventListener("click",()=>{root.hidden=false;returnButton.hidden=true;document.body.classList.add("mars-mode");resize();});
+  document.getElementById("marsReports").addEventListener("click",()=>{
+    classic.click();
+    const reports=document.getElementById("wfReports");
+    if(reports)reports.click();
+  });
   const load=async()=>{
     try{
-      const [s,shops]=await Promise.all([
+      const [s,shops,expansion]=await Promise.all([
         fetch("data/status.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject("status")),
-        fetch("data/stores.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject("stores"))
+        fetch("data/stores.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject("stores")),
+        fetch("data/colony.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{projects:[]}).catch(()=>({projects:[]}))
       ]);
       bots=s.bots||{};stores=Array.isArray(shops.stores)?shops.stores:[];
+      projects=Array.isArray(expansion.projects)?expansion.projects:[];
       reportTimestamp=s.updated||0;
       document.getElementById("marsReportAge").textContent=reportTimestamp?"Bot reports: "+new Date(reportTimestamp).toLocaleDateString():"No bot report timestamp";
       renderNav();
