@@ -117,3 +117,17 @@ body.mars-mode #sheet, body.mars-mode .ticker { display:none!important; }
   .mars-heading strong{font-size:18px}
 }
 /* End Colony game HUD refinements. */
+
+/* Calm, compact HUD: keep the colony as the focal point on phones. */
+#marsBack[hidden]{display:none!important}
+@media(max-width:620px){
+ .mars-top{padding:6px 9px;max-width:calc(100vw - 78px);border-radius:11px}
+ .mars-top .label{display:none!important}
+ #marsSummary{font-size:12px;line-height:1.2}
+ #marsReportAge{font-size:9px}
+ .mars-bottom{padding:8px 10px;gap:4px}
+ .mars-bottom .mars-heading strong{font-size:17px}
+ .mars-bottom #marsDetail{font-size:9px;line-height:1.35}
+ .mars-bottom .mars-actions .mars-btn{min-height:29px;padding:5px 8px}
+ #marsDistricts button{min-height:30px;padding:6px 9px}
+}
