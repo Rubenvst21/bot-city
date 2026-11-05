@@ -1,15 +1,15 @@
 {
-  "updated": "2026-10-27T15:57:24Z",
+  "updated": "2026-11-05T09:25:22Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
       "emoji": "🎬",
       "color": "#ff4fa3",
-      "description": "Writes, voices and edits two faceless YouTube Shorts a day.",
+      "description": "Creates original educational Shorts for private approval; public publishing remains owner-controlled.",
       "state": "ok",
-      "headline": "Made “How Coca-Cola Nearly Ruined New Year's Eve in 1997” (22 s)",
-      "last_run": "2026-10-27T15:57:24Z",
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/40535059993",
+      "headline": "Coin-ridges Short: YouTube API accepted PRIVATE video lt56dSP2m38; Studio playback review pending",
+      "last_run": "2026-11-05T09:25:22Z",
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/42002103499",
       "runs": 79,
       "totals": {
         "Shorts made": 48,
@@ -17,6 +17,11 @@
         "Uploaded to YouTube": 45
       },
       "history": [
+        {
+          "time": "2026-11-05T09:25:22Z",
+          "state": "ok",
+          "headline": "Coin-ridges Short: YouTube API accepted PRIVATE video lt56dSP2m38; Studio playback review pending"
+        },
         {
           "time": "2026-10-27T15:57:24Z",
           "state": "ok",
@@ -111,14 +116,10 @@
           "time": "2026-10-22T18:54:53Z",
           "state": "failed",
           "headline": "Run failed, check the log"
-        },
-        {
-          "time": "2026-10-22T18:10:10Z",
-          "state": "failed",
-          "headline": "Run failed, check the log"
         }
       ],
-      "failures": 35
+      "failures": 35,
+      "metrics_as_of": "2026-10-27T15:57:24Z"
     },
     "trading": {
       "name": "Trading Desk",
