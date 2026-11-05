@@ -14,11 +14,11 @@
   const classic=document.getElementById("marsClassic"),returnButton=document.getElementById("marsReturn");
   const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const zones=[
-    {id:"creative",name:"Creative Studio",icon:"🎬",tag:"VIDEOS & CONTENT",color:"#ab83ef",pos:[-2.4,-1.2],bots:["shorts","marketing"],tasks:["Storyboard","Edit timeline","Private review"]},
-    {id:"commerce",name:"Commerce & Stores",icon:"📦",tag:"PRODUCTS & ORDERS",color:"#f5bc67",pos:[2.3,-1.3],bots:["scout","builder","orders","supplier","catalog","pricing"],tasks:["Product Scout","Supplier checks","Order desk"]},
-    {id:"quality",name:"Operations & Quality",icon:"🛡️",tag:"APPROVALS & CHECKS",color:"#6be5e5",pos:[0.2,2.2],bots:["manager","quality"],tasks:["Quality test","Approval desk","Run reports"]},
-    {id:"finance",name:"Finance & Research",icon:"📈",tag:"INSIGHTS & COSTS",color:"#80e3ae",pos:[-2.2,2.6],bots:["trading"],tasks:["Costs & margins","Analytics","Paper trading"]},
-    {id:"engineering",name:"Engineering & DIY",icon:"⚙️",tag:"PROTOTYPES & DESIGN",color:"#8eaefe",pos:[2.5,2.5],bots:["engineering"],tasks:["CAD plans","Prototype lab","Inspection bay"]}
+    {id:"creative",name:"Creative Studio",icon:"🎬",tag:"VIDEOS & CONTENT",color:"#ab83ef",pos:[-3.3,-0.4],bots:["shorts","marketing"],tasks:["Storyboard","Edit timeline","Private review"]},
+    {id:"commerce",name:"Commerce & Stores",icon:"📦",tag:"PRODUCTS & ORDERS",color:"#f5bc67",pos:[-0.4,-3.3],bots:["scout","builder","orders","supplier","catalog","pricing"],tasks:["Product Scout","Supplier checks","Order desk"]},
+    {id:"quality",name:"Operations & Quality",icon:"🛡️",tag:"APPROVALS & CHECKS",color:"#6be5e5",pos:[3.8,3.8],bots:["manager","quality"],tasks:["Quality test","Approval desk","Run reports"]},
+    {id:"finance",name:"Finance & Research",icon:"📈",tag:"INSIGHTS & COSTS",color:"#80e3ae",pos:[1.03,3.93],bots:["trading"],tasks:["Costs & margins","Analytics","Paper trading"]},
+    {id:"engineering",name:"Engineering & DIY",icon:"⚙️",tag:"PROTOTYPES & DESIGN",color:"#8eaefe",pos:[3.93,1.03],bots:["engineering"],tasks:["CAD plans","Prototype lab","Inspection bay"]}
   ];
   let stores=[],projects=[],bots={},reportTimestamp=0;
   const state={level:"city",zone:null,room:null,panX:0,panY:0,zoom:1,drag:null,lastX:0,lastY:0,tiles:[],width:0,height:0,dpr:1,start:performance.now()};
@@ -42,12 +42,12 @@
   }
   function allPlots() {
     const next=stores.filter(s=>s.status!=="existing").map((s,i)=>{
-      const slot=[[0,-4.2],[4.6,-0.1],[-4.5,0.0],[0,5.4],[4.8,4.7],[-5,4.7]][i%6];
+      const slot=[[-6.7,-2.0],[2.2,-6.8],[0.5,7.0],[7.1,2.2],[-7.1,3.8],[6.3,-4.2]][i%6];
       const radius=Math.floor(i/6);
       return {id:"store-"+s.id,name:s.name,icon:"🛒",tag:s.segment||"FUTURE STORE",color:"#7e93c4",kind:"store",pos:[slot[0]+radius*1.5,slot[1]+radius*1.2],bots:[],tasks:["Connect store","Review products","Launch after approval"]};
     });
     const extras=projects.map((project,i)=>{
-      const slot=[[-3.6,-4.2],[3.7,-4.2],[-5.8,3.5],[5.8,3.5],[0,-6.6]][i%5];
+      const slot=[[-6.5,-6.5],[7.0,-6.5],[-7.0,6.0],[7.1,6.0],[0,-9.0]][i%5];
       const ring=Math.floor(i/5);
       const color=project.color&&/^#[0-9a-f]{6}$/i.test(project.color)?project.color:"#7e93c4";
       return {id:"project-"+project.id,name:project.name,kind:"project",projectStatus:project.status,
@@ -140,8 +140,8 @@
   function roadPath(points,k){
     ctx.beginPath();ctx.moveTo(points[0].x,points[0].y);
     for(let i=1;i<points.length;i++)ctx.lineTo(points[i].x,points[i].y);
-    ctx.lineWidth=Math.max(2,17*state.zoom);ctx.strokeStyle="rgba(19,26,36,.75)";ctx.lineCap="round";ctx.stroke();
-    ctx.lineWidth=Math.max(1,3.2*state.zoom);ctx.strokeStyle="rgba(103,224,228,.58)";ctx.stroke();
+    ctx.lineWidth=Math.max(3,8*state.zoom);ctx.strokeStyle="rgba(19,26,36,.75)";ctx.lineCap="round";ctx.stroke();
+    ctx.lineWidth=Math.max(1,2*state.zoom);ctx.strokeStyle="rgba(103,224,228,.58)";ctx.stroke();
     ctx.setLineDash([6*state.zoom,14*state.zoom]);ctx.lineWidth=Math.max(.6,1.1*state.zoom);ctx.strokeStyle="#e3c7a177";ctx.stroke();ctx.setLineDash([]);
   }
   function hexPoints(cx,cy,r){return [
@@ -254,8 +254,8 @@
     }
   }
   function building(p,z,st,t) {
-    const s=clamp(state.zoom*.94,.48,1.6),cx=p.x,cy=p.y;
-    const r=clamp(68*s,34,116),dep=clamp(16*s,9,28);
+    const s=clamp(state.zoom*(state.width>=760?1.10:.74),.45,1.4),cx=p.x,cy=p.y;
+    const r=clamp(68*s,36,94),dep=clamp(16*s,8,25);
     const hex=hexPoints(cx,cy,r);
     // Soft terraformed plot shadow and chunky six-sided extrusion.
     ctx.beginPath();ctx.ellipse(cx,cy+dep+r*.34,r*.85,r*.26,0,0,Math.PI*2);
@@ -425,7 +425,7 @@
   function fit(){
     const width=state.width,height=state.height;
     const count=allPlots().length;
-    state.zoom=clamp(count>8?Math.min(1.2,width/385):Math.min(1.16,width/405),.53,1.45);
+    state.zoom=clamp(width>=760?0.79:Math.min(1.22,width/385),.68,1.45);
     state.panX=0;state.panY=0;
   }
   function setLevel(level,z=null,room=null){
@@ -436,12 +436,13 @@
     screen.textContent=t;
     crumb.textContent=level==="city"?"Mars Colony / Sector 01":level==="district"?"Mars Colony / "+z.name:"Mars Colony / "+z.name+" / "+z.tasks[room];
     back.disabled=level==="city";
-    back.textContent=level==="room"?"← Department":level==="district"?"← Colony":"Colony";
+    back.textContent=level==="room"?"← Department":level==="district"?"← Colony":"← Back";
+    back.hidden=level==="city";
     detail.textContent=level==="city"?"Tap a plot to enter. Pinch to zoom, drag to explore. Planned plots are foundations, not operating businesses.":level==="district"?"Tap a workstation to zoom in. Small moving bots are role illustrations, not proof of automation.":"This is an illustrative workroom. Its real status is shown separately in the department summary.";
     if(level==="district"||level==="room"){
       const st=zoneStatus(z);
       summary.textContent=z.name+" · "+st.label;
-    }else summary.textContent=allPlots().length+" mapped plots · expands as configured stores are added";
+    }else summary.textContent=allPlots().length+" plots · "+zones.length+" core departments";
     renderNav();
     // Reduced-motion users still need an immediate redraw after every navigation.
     if(reducedMotion)requestAnimationFrame(render);
