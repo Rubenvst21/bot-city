@@ -153,13 +153,22 @@
       ctx.setLineDash([3,3]);rrect(cx-w*.17,baseY-h*.25,w*.34,h*.35,3,"rgba(112,175,211,.13)","#bedcf366");ctx.setLineDash([]);
       text("✧",cx,baseY-h*.15,14,"#c5daed");
     }
-    // label in fixed pixel font
-    const labelWidth=clamp(z.name.length*6.15+30,90,165);
+    // On phones, don't cover small plots with overlapping name badges.
+    // Full names remain available in the accessible district navigation.
     const labelY=cy+h*.65+Math.max(11,7*s);
-    rrect(cx-labelWidth/2,labelY-12,labelWidth,24,12,"rgba(9,28,45,.94)",alpha(z.color,.65));
-    text(z.name,cx,labelY,clamp(10+state.zoom*1.2,10,12),"#f3f8ff");
-    const badge=st.mode==="running"?"● ACTIVE":st.mode==="recent"?"● RECENT":st.mode==="failed"?"! REVIEW":st.mode==="planned"?"◇ PLANNED":"◌ STALE";
-    text(badge,cx,labelY+21,9,st.mode==="running"?"#6bf0c6":st.mode==="failed"?"#ffb4ba":"#c3d8e3");
+    if(state.width>=680 || state.zoom>=1.17){
+      const labelWidth=clamp(z.name.length*6.15+30,90,165);
+      rrect(cx-labelWidth/2,labelY-12,labelWidth,24,12,"rgba(9,28,45,.94)",alpha(z.color,.65));
+      text(z.name,cx,labelY,clamp(10+state.zoom*1.2,10,12),"#f3f8ff");
+      const badge=st.mode==="running"?"● ACTIVE":st.mode==="recent"?"● RECENT":st.mode==="failed"?"! REVIEW":st.mode==="planned"?"◇ PLANNED":"◌ STALE";
+      text(badge,cx,labelY+21,9,st.mode==="running"?"#6bf0c6":st.mode==="failed"?"#ffb4ba":"#c3d8e3");
+    }else{
+      // A subtle district marker reads better at small zoom levels.
+      const shortName=z.kind==="store"?"STORE":z.kind==="project"?"PROJECT":z.id.toUpperCase().slice(0,7);
+      const markerW=clamp(shortName.length*5+15,35,66);
+      rrect(cx-markerW/2,labelY-8,markerW,17,8,"rgba(9,27,44,.82)",alpha(z.color,.48));
+      text(shortName,cx,labelY,8,"#d6e7f0");
+    }
     state.tiles.push({id:z.id,x:cx,y:cy,w:Math.max(80,w),h:90*s});
   }
   function miniRobot(x,y,color,s,working){
@@ -278,12 +287,22 @@
       const st=zoneStatus(z);
       summary.textContent=z.name+" · "+st.label;
     }else summary.textContent=allPlots().length+" mapped plots · expands as configured stores are added";
-    if(nav)for (const b of nav.querySelectorAll("button[data-zone]"))b.setAttribute("aria-current",z&&b.dataset.zone===z.id?"location":"false");
+    renderNav();
     // Reduced-motion users still need an immediate redraw after every navigation.
     if(reducedMotion)requestAnimationFrame(render);
   }
   function renderNav(){
     nav.replaceChildren();
+    if((state.level==="district"||state.level==="room")&&state.zone){
+      state.zone.tasks.forEach((task,i)=>{
+        const btn=document.createElement("button");btn.type="button";btn.dataset.room=String(i);
+        btn.textContent="🚪 "+task;
+        btn.setAttribute("aria-current",state.level==="room"&&state.room===i?"location":"false");
+        btn.addEventListener("click",()=>setLevel("room",state.zone,i));
+        nav.append(btn);
+      });
+      return;
+    }
     for(const z of allPlots()){
       const btn=document.createElement("button");btn.type="button";btn.dataset.zone=z.id;
       btn.textContent=z.icon+" "+z.name;
@@ -380,6 +399,7 @@
     const reports=document.getElementById("wfReports");
     if(reports)reports.click();
   });
+  if(new URLSearchParams(location.search).has("smoke"))window.__marsDebug=()=>({level:state.level,tiles:state.tiles,zoom:state.zoom,pointer:state.drag,screen:screen.textContent});
   const load=async()=>{
     try{
       const [s,shops,expansion]=await Promise.all([
