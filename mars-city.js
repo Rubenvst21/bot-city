@@ -134,7 +134,7 @@
   function cityProjection(p){
     const fit=state.width<550? Math.min(47,state.width/10.2):Math.min(71,state.width/17);
     const k=fit*state.zoom;
-    const cx=state.width*.5+state.panX,cy=state.height*.49+state.panY;
+    const cx=state.width*.5+state.panX,cy=state.height*.545+state.panY;
     return {x:cx+(p[0]-p[1])*k*.86,y:cy+(p[0]+p[1])*k*.44,k};
   }
   function roadPath(points,k){
@@ -167,15 +167,24 @@
     const pulse=(animated?.5+.5*Math.sin(t*2):.6);
     const planned=st.mode==="planned";
     if(planned){
-      // Unoccupied construction footprint; never simulates an active automated job.
+      // Role-specific blueprint buildings. Construction, not a claim of active automation.
       ctx.setLineDash([4*s,4*s]);
-      poly([[cx,cy-28*s],[cx+38*s,cy-10*s],[cx,cy+4*s],[cx-38*s,cy-10*s]],"rgba(77,139,173,.25)","rgba(160,218,249,.72)");
+      poly([[cx,cy-28*s],[cx+38*s,cy-10*s],[cx,cy+4*s],[cx-38*s,cy-10*s]],alpha(z.color,.15),alpha(z.color,.68));
       ctx.setLineDash([]);
-      isoBox(cx,cy-16*s,26*s,12*s,11*s,"#5c7a9a","#27465f","#325474","#92b8e3");
-      line(cx-22*s,cy-29*s,cx-22*s,cy-60*s,"rgba(165,204,243,.85)",2*s);
-      line(cx-22*s,cy-60*s,cx+15*s,cy-60*s,"rgba(165,204,243,.85)",2*s);
-      line(cx+12*s,cy-60*s,cx+12*s,cy-31*s,"rgba(165,204,243,.65)",1.2*s);
-      text("+",cx,cy-31*s,15*s,"#e9f7ff");
+      isoBox(cx,cy-15*s,26*s,12*s,12*s,alpha(z.color,.38),"#29455c","#31546b",alpha(z.color,.95));
+      // A color-coded modular gantry and construction scaffold.
+      line(cx-28*s,cy-29*s,cx-28*s,cy-61*s,alpha(z.color,.95),2.5*s);
+      line(cx-28*s,cy-61*s,cx+24*s,cy-61*s,alpha(z.color,.82),2*s);
+      line(cx+23*s,cy-61*s,cx+23*s,cy-29*s,alpha(z.color,.68),1.5*s);
+      line(cx-25*s,cy-59*s,cx+20*s,cy-31*s,"rgba(193,225,250,.22)",1*s);
+      // A blueprint hologram reflects the department's purpose without a fake worker.
+      ctx.beginPath();ctx.ellipse(cx,cy-38*s,18*s,11*s,0,0,Math.PI*2);
+      ctx.fillStyle=alpha(z.color,.16);ctx.fill();ctx.strokeStyle=alpha(z.color,.65);ctx.lineWidth=1.2*s;ctx.stroke();
+      text(z.icon,cx,cy-40*s,16*s,"#eaf6ff");
+      for(let q=0;q<3;q++){
+        const x=cx+(q-1)*14*s;
+        rrect(x-5*s,cy-3*s,10*s,5*s,1*s,q%2?"#6b8095":alpha(z.color,.38));
+      }
       return;
     }
     switch(z.id){
@@ -256,9 +265,9 @@
       if(i===0||i===5)continue;
       poly([hex[i],hex[j],[hex[j][0],hex[j][1]+dep],[hex[i][0],hex[i][1]+dep]],i<3?"#7a4146":"#9b5450");
     }
-    poly(hex,st.mode==="planned"?"#3d5464":"#294a5b",alpha(z.color,.95));
+    poly(hex,st.mode==="planned"?alpha(z.color,.23):"#294a5b",alpha(z.color,.95));
     const inner=hexPoints(cx,cy,r*.88);
-    poly(inner,st.mode==="planned"?"#1e3d52":alpha(z.color,.13),alpha(z.color,.28));
+    poly(inner,st.mode==="planned"?alpha(z.color,.13):alpha(z.color,.20),alpha(z.color,.28));
     // Hex floor panels / work areas with unique department props.
     line(cx-r*.48,cy+r*.22,cx+r*.52,cy+r*.22,alpha(z.color,.26),1.1*s);
     line(cx-r*.18,cy-r*.3,cx-r*.18,cy+r*.35,alpha(z.color,.24),1.1*s);
