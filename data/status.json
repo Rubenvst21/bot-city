@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09T16:14:23Z",
+  "updated": "2026-11-09T16:14:31Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -240,28 +240,32 @@
       "emoji": "🔭",
       "color": "#4bb7ff",
       "description": "Finds evidence-backed standout short-form videos using public YouTube data; produces research only, never purchases, generates or publishes videos.",
-      "state": "running",
-      "last_run": "2026-11-09T13:52:39Z",
-      "runs": 1,
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/42629215158",
+      "state": "ok",
+      "last_run": "2026-11-09T16:14:30Z",
+      "runs": 2,
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/42652612929",
       "totals": {
-        "Research scans": 1,
-        "Candidates checked": 27,
+        "Research scans": 2,
+        "Candidates checked": 26,
         "Baseline channels": 12,
-        "Best public example": "You Just Invented the Sewing Machine | Invention Series Ep #007 |",
-        "Best example views": 1117548,
+        "Best public example": "🔥 How a 4-Stroke Engine Works 🤯 | Amazing Piston Animation! #Shor",
+        "Best example views": 117071,
         "Shorts identity verified": "No - duration filter only",
         "Private analytics": "Unavailable"
       },
-      "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload",
+      "headline": "Video Scout: 26 public candidates; 5 top-five examples have usable channel baselines; research only, no upload",
       "history": [
+        {
+          "time": "2026-11-09T16:14:30Z",
+          "state": "ok",
+          "headline": "Video Scout: 26 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
+        },
         {
           "time": "2026-11-09T13:52:39Z",
           "state": "ok",
           "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
         }
-      ],
-      "started": "2026-11-09T16:14:22Z"
+      ]
     }
   }
 }
