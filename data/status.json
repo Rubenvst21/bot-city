@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-05T09:25:22Z",
+  "updated": "2026-11-09T13:52:31Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -234,6 +234,14 @@
       "description": "Prepares organic campaign copy and storyboards for owner review; no automatic posting, ads or purchases.",
       "state": "planned",
       "headline": "Manual offline campaign workflow committed; not yet executed"
+    },
+    "video_scout": {
+      "name": "Video Scout",
+      "emoji": "🔭",
+      "color": "#4bb7ff",
+      "description": "Finds evidence-backed standout short-form videos using public YouTube data; produces research only, never purchases, generates or publishes videos.",
+      "state": "running",
+      "started": "2026-11-09T13:52:30Z"
     }
   }
 }
