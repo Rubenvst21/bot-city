@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09T13:52:31Z",
+  "updated": "2026-11-09T13:52:39Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -240,8 +240,27 @@
       "emoji": "🔭",
       "color": "#4bb7ff",
       "description": "Finds evidence-backed standout short-form videos using public YouTube data; produces research only, never purchases, generates or publishes videos.",
-      "state": "running",
-      "started": "2026-11-09T13:52:30Z"
+      "state": "ok",
+      "last_run": "2026-11-09T13:52:39Z",
+      "runs": 1,
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/42629215158",
+      "totals": {
+        "Research scans": 1,
+        "Candidates checked": 27,
+        "Baseline channels": 12,
+        "Best public example": "You Just Invented the Sewing Machine | Invention Series Ep #007 |",
+        "Best example views": 1117548,
+        "Shorts identity verified": "No - duration filter only",
+        "Private analytics": "Unavailable"
+      },
+      "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload",
+      "history": [
+        {
+          "time": "2026-11-09T13:52:39Z",
+          "state": "ok",
+          "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
+        }
+      ]
     }
   }
 }
