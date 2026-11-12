@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12T15:24:25Z",
+  "updated": "2026-11-12T15:24:35Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -240,21 +240,26 @@
       "emoji": "🔭",
       "color": "#4bb7ff",
       "description": "Finds evidence-backed standout short-form videos using public YouTube data; produces research only, never purchases, generates or publishes videos.",
-      "state": "running",
-      "last_run": "2026-11-11T14:31:12Z",
-      "runs": 4,
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/43039098332",
+      "state": "ok",
+      "last_run": "2026-11-12T15:24:34Z",
+      "runs": 5,
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/43247317836",
       "totals": {
-        "Research scans": 4,
+        "Research scans": 5,
         "Candidates checked": 25,
         "Baseline channels": 12,
-        "Best public example": "How the Smallest Pistol Works: 3D Animation Explained #shorts",
-        "Best example views": 277516,
+        "Best public example": "World's Largest Heavy Lift Vessel Ship 😱| Semi Submersible Heavy ",
+        "Best example views": 39017,
         "Shorts identity verified": "No - duration filter only",
         "Private analytics": "Unavailable"
       },
       "headline": "Video Scout: 25 public candidates; 5 top-five examples have usable channel baselines; research only, no upload",
       "history": [
+        {
+          "time": "2026-11-12T15:24:34Z",
+          "state": "ok",
+          "headline": "Video Scout: 25 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
+        },
         {
           "time": "2026-11-11T14:31:12Z",
           "state": "ok",
@@ -275,8 +280,7 @@
           "state": "ok",
           "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
         }
-      ],
-      "started": "2026-11-12T15:24:25Z"
+      ]
     }
   }
 }
