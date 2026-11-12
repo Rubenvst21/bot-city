@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-11T14:31:12Z",
+  "updated": "2026-11-12T15:24:25Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -240,7 +240,7 @@
       "emoji": "🔭",
       "color": "#4bb7ff",
       "description": "Finds evidence-backed standout short-form videos using public YouTube data; produces research only, never purchases, generates or publishes videos.",
-      "state": "ok",
+      "state": "running",
       "last_run": "2026-11-11T14:31:12Z",
       "runs": 4,
       "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/43039098332",
@@ -275,7 +275,8 @@
           "state": "ok",
           "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
         }
-      ]
+      ],
+      "started": "2026-11-12T15:24:25Z"
     }
   }
 }
