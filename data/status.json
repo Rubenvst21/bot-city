@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-14T13:39:11Z",
+  "updated": "2026-11-14T13:39:19Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -240,21 +240,26 @@
       "emoji": "🔭",
       "color": "#4bb7ff",
       "description": "Finds evidence-backed standout short-form videos using public YouTube data; produces research only, never purchases, generates or publishes videos.",
-      "state": "running",
-      "last_run": "2026-11-13T14:41:38Z",
-      "runs": 6,
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/43445034443",
+      "state": "ok",
+      "last_run": "2026-11-14T13:39:19Z",
+      "runs": 7,
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/43600789070",
       "totals": {
-        "Research scans": 6,
+        "Research scans": 7,
         "Candidates checked": 25,
         "Baseline channels": 12,
         "Best public example": "How the Smallest Pistol Works: 3D Animation Explained #shorts",
-        "Best example views": 305187,
+        "Best example views": 362698,
         "Shorts identity verified": "No - duration filter only",
         "Private analytics": "Unavailable"
       },
       "headline": "Video Scout: 25 public candidates; 5 top-five examples have usable channel baselines; research only, no upload",
       "history": [
+        {
+          "time": "2026-11-14T13:39:19Z",
+          "state": "ok",
+          "headline": "Video Scout: 25 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
+        },
         {
           "time": "2026-11-13T14:41:38Z",
           "state": "ok",
@@ -285,8 +290,7 @@
           "state": "ok",
           "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
         }
-      ],
-      "started": "2026-11-14T13:39:11Z"
+      ]
     }
   }
 }
