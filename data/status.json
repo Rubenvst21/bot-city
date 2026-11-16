@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T15:58:53Z",
+  "updated": "2026-11-16T15:59:01Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -240,21 +240,26 @@
       "emoji": "🔭",
       "color": "#4bb7ff",
       "description": "Finds evidence-backed standout short-form videos using public YouTube data; produces research only, never purchases, generates or publishes videos.",
-      "state": "running",
-      "last_run": "2026-11-15T14:03:09Z",
-      "runs": 8,
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/43722142703",
+      "state": "ok",
+      "last_run": "2026-11-16T15:59:01Z",
+      "runs": 9,
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/43902254219",
       "totals": {
-        "Research scans": 8,
+        "Research scans": 9,
         "Candidates checked": 25,
         "Baseline channels": 12,
-        "Best public example": "Kolkata Underwater Metro Tunnel Engineering Explained | 3D Animat",
-        "Best example views": 320225,
+        "Best public example": "You Just Invented the Film Projector | Invention Series Ep #008 |",
+        "Best example views": 1823732,
         "Shorts identity verified": "No - duration filter only",
         "Private analytics": "Unavailable"
       },
       "headline": "Video Scout: 25 public candidates; 5 top-five examples have usable channel baselines; research only, no upload",
       "history": [
+        {
+          "time": "2026-11-16T15:59:01Z",
+          "state": "ok",
+          "headline": "Video Scout: 25 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
+        },
         {
           "time": "2026-11-15T14:03:09Z",
           "state": "ok",
@@ -295,8 +300,7 @@
           "state": "ok",
           "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
         }
-      ],
-      "started": "2026-11-16T15:58:52Z"
+      ]
     }
   }
 }
