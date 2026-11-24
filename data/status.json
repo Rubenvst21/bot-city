@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24T17:53:57Z",
+  "updated": "2026-11-24T17:54:05Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -240,21 +240,26 @@
       "emoji": "🔭",
       "color": "#4bb7ff",
       "description": "Finds evidence-backed standout short-form videos using public YouTube data; produces research only, never purchases, generates or publishes videos.",
-      "state": "running",
-      "last_run": "2026-11-23T18:23:34Z",
-      "runs": 16,
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/45237691808",
+      "state": "ok",
+      "last_run": "2026-11-24T17:54:04Z",
+      "runs": 17,
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/45453473739",
       "totals": {
-        "Research scans": 16,
+        "Research scans": 17,
         "Candidates checked": 24,
         "Baseline channels": 12,
-        "Best public example": "You Just Invented the Sewing Machine | Invention Series Ep #007 |",
-        "Best example views": 1311985,
+        "Best public example": "How Did a Steam Bicycle Become a Modern Motorcycle? (3D Animation",
+        "Best example views": 1133755,
         "Shorts identity verified": "No - duration filter only",
         "Private analytics": "Unavailable"
       },
       "headline": "Video Scout: 24 public candidates; 5 top-five examples have usable channel baselines; research only, no upload",
       "history": [
+        {
+          "time": "2026-11-24T17:54:04Z",
+          "state": "ok",
+          "headline": "Video Scout: 24 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
+        },
         {
           "time": "2026-11-23T18:23:34Z",
           "state": "ok",
@@ -335,8 +340,7 @@
           "state": "ok",
           "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
         }
-      ],
-      "started": "2026-11-24T17:53:57Z"
+      ]
     }
   }
 }
