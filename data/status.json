@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-28T15:38:56Z",
+  "updated": "2026-11-28T15:39:03Z",
   "bots": {
     "shorts": {
       "name": "Shorts Studio",
@@ -240,21 +240,26 @@
       "emoji": "🔭",
       "color": "#4bb7ff",
       "description": "Finds evidence-backed standout short-form videos using public YouTube data; produces research only, never purchases, generates or publishes videos.",
-      "state": "running",
-      "last_run": "2026-11-27T16:47:28Z",
-      "runs": 20,
-      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/46036436601",
+      "state": "ok",
+      "last_run": "2026-11-28T15:39:03Z",
+      "runs": 21,
+      "run_url": "https://github.com/Rubenvst21/Bots/actions/runs/46160922118",
       "totals": {
-        "Research scans": 20,
-        "Candidates checked": 24,
+        "Research scans": 21,
+        "Candidates checked": 25,
         "Baseline channels": 12,
         "Best public example": "How Did a Steam Bicycle Become a Modern Motorcycle? (3D Animation",
-        "Best example views": 1545497,
+        "Best example views": 1590249,
         "Shorts identity verified": "No - duration filter only",
         "Private analytics": "Unavailable"
       },
-      "headline": "Video Scout: 24 public candidates; 5 top-five examples have usable channel baselines; research only, no upload",
+      "headline": "Video Scout: 25 public candidates; 5 top-five examples have usable channel baselines; research only, no upload",
       "history": [
+        {
+          "time": "2026-11-28T15:39:03Z",
+          "state": "ok",
+          "headline": "Video Scout: 25 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
+        },
         {
           "time": "2026-11-27T16:47:28Z",
           "state": "ok",
@@ -349,14 +354,8 @@
           "time": "2026-11-09T16:14:30Z",
           "state": "ok",
           "headline": "Video Scout: 26 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
-        },
-        {
-          "time": "2026-11-09T13:52:39Z",
-          "state": "ok",
-          "headline": "Video Scout: 27 public candidates; 5 top-five examples have usable channel baselines; research only, no upload"
         }
-      ],
-      "started": "2026-11-28T15:38:56Z"
+      ]
     }
   }
 }
